@@ -1,0 +1,32 @@
+<div class="caja">
+    <div class="ban">
+        <div class="cap">
+            <div class="cjo">
+                <h1>Bienvenido</h1>
+            </div>
+
+            <div class="cjt">
+                <p>Una forma distinta de administrar tu negocio.</p>
+                <input class="form-control" type="search" placeholder="Nombre del producto" aria-label="search">
+                <button class="btn btn-outline-warning my-sm-2" type="submit">Búscar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Productos</h1>
+        <hr>
+        <div class="prod" *ngFor="let item of productos" [routerLink]="['/Productos/Añadir', item.codigo]">
+            <div class="img">
+                <img src="{{item.imagen}}" alt="" class="ImgProd">
+            </div>
+            <div class="cont">
+                <h6>{{item.nombre}}</h6>
+                <p> {{item.descripcion}} </p>
+                <div class="card-text"><small class="text-muted"> Categoria: {{item.categoria}}, Subcategoria: {{item.subcategoria}} </small></div>
+                <div class="card-text"><small class="text-muted"> Marca: {{item.marca}}, Provedor: {{item.provedor}} </small></div>
+            </div>
+        </div>
+    </div>
+
+</div>

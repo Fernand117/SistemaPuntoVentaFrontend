@@ -1,0 +1,106 @@
+<div class="caja">
+    <div class="container">
+        <h1>Detalles de remision</h1>
+        <hr>
+    </div>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Lista de productos</button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div id="areaImprimir" class="container ct">
+                        <table class="table">
+                            <thead>
+                                <tr class="bg-primary tr">
+                                    <th scope="col">Remision</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Almacen</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col" class="coleliminar">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody">
+                                <tr *ngFor="let item of datos; let i of index">
+                                    <th scope="row">{{i.numero_remision}}</th>
+                                    <td>{{item.fecha_remision}}</td>
+                                    <td>{{item.estado_remision}}</td>
+                                    <td>{{item.almacen_general}}{{item.almacen_salida}} </td>
+                                    <td>{{item.cantidad}}</td>
+                                    <td> {{item.cliente}} </td>
+                                    <td> {{item.codigo}} </td>
+                                    <td> {{item.producto}} </td>
+                                    <th>${{item.subtotal}} MXN</th>
+                                    <td><button class="btn bl btn-danger">Eliminar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="csb" *ngFor="let item of subtotal">
+                            <h1 class="ltotal">Subtotal: ${{ item.subtotal }} MXN</h1>
+                        </div>
+                        <div class="ctotal" *ngFor="let item of total">
+                            <h1 class="ltotal">IVA: 16%</h1>
+                            <h1 class="ltotal">Total: ${{ item.total }} MXN</h1>
+                            <button class="btn bl btn-success">Venta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Ticket
+            </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div id="tiket" class="tiket">
+                        <table class=" tbTiket">
+                            <thead>
+                                <tr class="bg-primary tr">
+                                    <th scope="col">Remision</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody tbodyTiket">
+                                <tr *ngFor="let item of datos; let i of index">
+                                    <th scope="row">{{i.numero_remision}}</th>
+                                    <td>{{item.fecha_remision}}</td>
+                                    <td>{{item.cantidad}}</td>
+                                    <td> {{item.codigo}} </td>
+                                    <td> {{item.producto}} </td>
+                                    <th>${{item.subtotal}} MXN</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="csb" *ngFor="let item of subtotal">
+                            <h1 class="ltotal">Subtotal: ${{ item.subtotal }} MXN</h1>
+                        </div>
+                        <div class="ctotal" *ngFor="let item of total">
+                            <h1 class="ltotal">IVA: 16%</h1>
+                            <h1 class="ltotal">Total: ${{ item.total }} MXN</h1>
+                        </div>
+                    </div>
+                    <button class="btn bl btn-info" (click)="imprimir('tiket')" value="imprimir div">Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

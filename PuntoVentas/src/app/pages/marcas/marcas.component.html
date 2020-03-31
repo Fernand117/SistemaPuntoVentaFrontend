@@ -1,0 +1,35 @@
+<div class="caja">
+    <div class="container">
+        <div class="cont">
+            <h2>Lista de subcategorias</h2>
+            <hr>
+            <div class="">
+                <form>
+                    <br>
+                    <h5>Nombre de la marca</h5>
+                    <input type="text" name="nombre" id="nombre" class="form-control">
+                    <br>
+                    <h5>Imagen</h5>
+                    <input type="file" name="imagen" id="imagen" class="form-control-file" accept="image/jpeg">
+                    <br>
+                    <button class="btn btn-success">Añadir nueva marca</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mb-3" *ngFor="let item of datos; let i = index">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img src="{{item.imagen}}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Marca: {{item.nombre}}</h5>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

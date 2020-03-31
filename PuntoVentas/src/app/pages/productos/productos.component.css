@@ -1,0 +1,90 @@
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #121212;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.caja {
+    position: fixed;
+    width: 80%;
+    height: 595px;
+    overflow: scroll;
+    margin-left: 20%;
+    margin-top: 4%;
+}
+
+.ct {
+    width: 90%;
+    height: 300px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    overflow: scroll;
+}
+
+.ImgProd {
+    width: 100px;
+}
+
+.table {
+    width: 100%;
+}
+
+.tbody {
+    overflow: scroll;
+}
+
+.tr {
+    color: white;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+.cont {
+    width: 90%;
+}
+
+.cont1,
+.cont2 {
+    padding: 10px;
+    height: 300px;
+    width: 50%;
+    float: left;
+}

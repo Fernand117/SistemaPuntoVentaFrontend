@@ -1,11 +1,10 @@
 <div class="menu navbar-dark bg-dark">
-    <div class="profile">
-        <div class="imagepro">IMG</div>
+    <!--<div class="profile">
         <div class="namepro">Nombre de usuario</div>
-    </div>
+    </div>-->
     <ul class="nav flex-column">
         <li class="nav-item dropdown b">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span><img src="../../../assets/img/icons8-usuario-50.png" class="ImgIcon"></span> Cuenta</a>
             <div class="dropdown-menu">
                 <a class=" dropdown-item " href="# ">Perfil</a>
                 <a class="dropdown-item " href="# ">Editar</a>
@@ -14,52 +13,52 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Almacén</a>
+            <a class="nav-link" [routerLink]="['/Almacen']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-caja-llena-50.png" class="ImgIcon"></span> Almacén</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Salidas</a>
+            <a class="nav-link " [routerLink]="['/Salidas']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-salida-50.png" class="ImgIcon"></span> Salidas</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Compras</a>
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-etiqueta-de-precio-usd-50.png" class="ImgIcon"></span> Compras</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Remisiones</a>
-        </li>
-        <div class="dropdown-divider "></div>
-        <li class="nav-item ">
-            <a class="nav-link " href="# ">Categorias</a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link " href="# ">Subcategorias</a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link " href="# ">Marcas</a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link " href="# ">Productos</a>
+            <a class="nav-link " [routerLink]="['/Remisiones']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-tarea-50.png" class="ImgIcon"></span> Remisiones</a>
         </li>
         <div class="dropdown-divider "></div>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Inventario</a>
+            <a class="nav-link " [routerLink]="['/Categorias']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-marcapáginas-50.png" class="ImgIcon"></span> Categorias</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Ventas</a>
+            <a class="nav-link " [routerLink]="['/Subcategorias']"> <span><img src="../../../assets/img/icons8-lazo-marcapáginas-50.png" class="ImgIcon"></span> Subcategorias </a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Reportes</a>
+            <a class="nav-link " [routerLink]="['/Marcas']"> <span><img src="../../../assets/img/icons8-etiquetas-50.png" class="ImgIcon"></span> Marcas</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Otros</a>
+            <a class="nav-link " [routerLink]="['/Productos']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-carretilla-de-mano-de-entrega-50.png" class="ImgIcon"></span> Productos</a>
         </li>
         <div class="dropdown-divider "></div>
         <li class="nav-item ">
-            <a class="nav-link " href="# ">Clientes</a>
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-voluta-50.png" class="ImgIcon"></span> Inventario</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-venta-50.png" class="ImgIcon"></span> Ventas</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-documento-50.png" class="ImgIcon"></span> Reportes</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-agrupar-objetos-50.png" class="ImgIcon"></span> Otros</a>
+        </li>
+        <div class="dropdown-divider "></div>
+        <li class="nav-item ">
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-gestión-de-clientes-50.png" class="ImgIcon"></span> Clientes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="# ">Usuarios</a>
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-grupo-de-usuarios-hombre-hombre-50.png" class="ImgIcon"></span> Usuarios</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="# ">Acerca de</a>
+            <a class="nav-link " href="# "> <span><img src="../../../assets/img/icons8-lazo-marcapáginas-50.png" class="ImgIcon"></span> Acerca de</a>
         </li>
         <li class="nav-item f">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-copyright" aria-hidden="true">&copy;Fernando Leyva</i></a>
