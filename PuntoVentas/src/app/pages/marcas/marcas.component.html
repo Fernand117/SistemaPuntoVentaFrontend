@@ -1,22 +1,24 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
 <div class="caja">
     <div class="container">
         <div class="cont">
-            <h2>Lista de subcategorias</h2>
+            <h2>Lista de marcas</h2>
             <hr>
             <div class="">
-                <form>
+                <form (ngSubmit)="RegistrarMarca(form)" #form="ngForm">
                     <br>
                     <h5>Nombre de la marca</h5>
-                    <input type="text" name="nombre" id="nombre" class="form-control">
+                    <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="marca.nombre">
                     <br>
                     <h5>Imagen</h5>
-                    <input type="file" name="imagen" id="imagen" class="form-control-file" accept="image/jpeg">
+                    <input type="file" name="imagen" id="imagen" class="form-control-file" accept="image/jpeg" (change)="cargar_imagen($event)" [(ngModel)]="marca.imagen">
                     <br>
-                    <button class="btn btn-success">Añadir nueva marca</button>
+                    <button type="submit" class="btn btn-success">Añadir nueva marca</button>
                 </form>
             </div>
         </div>
-        <div class="card mb-3" *ngFor="let item of datos; let i = index">
+        <div class="card mb-3" *ngFor="let item of datos; let i = index" [routerLink]="['/Productos/Filtro', item.nombre]">
             <div class="row no-gutters">
                 <div class="col-md-2">
                     <img src="{{item.imagen}}" class="card-img" alt="...">

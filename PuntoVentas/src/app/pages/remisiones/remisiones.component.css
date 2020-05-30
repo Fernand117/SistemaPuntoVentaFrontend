@@ -51,9 +51,14 @@
 }
 
 .container {
-    margin-top: 5%;
+    width: 90%;
+    margin-top: 3%;
 }
 
 .tr {
     color: white;
+}
+
+.ct {
+    margin-bottom: 5%;
 }

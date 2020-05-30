@@ -3,6 +3,10 @@ import { RemisionesServicesService } from '../../services/remisiones-services.se
 import { AnonymousSubject } from 'rxjs/internal/Subject';
 import { RemisionesModule } from '../../models/remisiones/remisiones.module';
 import Swal from 'sweetalert2';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { ClientesServicesService } from '../../services/clientes-services.service';
+
 
 @Component({
   selector: 'app-remisiones',
@@ -14,8 +18,15 @@ export class RemisionesComponent implements OnInit {
   datos: any;
   remisiones: RemisionesModule = new RemisionesModule();
   formData = new FormData();
+  tokenUser: any;
+  nmuser: any;
 
-  constructor(private remservi: RemisionesServicesService) { }
+  constructor(
+    private remservi: RemisionesServicesService,
+    private authservice: AuthService,
+    private router: Router,
+    private clientservice: ClientesServicesService
+  ) { }
 
   ngOnInit() {
     this.remservi.ListarRemisiones().subscribe(
@@ -23,9 +34,16 @@ export class RemisionesComponent implements OnInit {
         this.datos = res['Remisiones'];
       }
     );
+    this.authservice.leer_token().subscribe(
+      res => {
+        this.tokenUser = res['Usuario'];
+        this.nmuser = res['Usuario']['0']['id'];
+        console.log(this.nmuser = res['Usuario']['0']['id']);
+      }
+    );
   }
 
-  guardar() {
+  guardar(form) {
     Swal.fire({
       icon: 'info',
       title: 'Espere por favor',
@@ -33,9 +51,9 @@ export class RemisionesComponent implements OnInit {
     });
     Swal.showLoading();
     this.formData.append('fecha_remision', this.remisiones.fecharemision);
-    this.formData.append('numero_remision', this.remisiones.numeroremision);
     this.formData.append('estado_remision', this.remisiones.estadoremision);
     this.formData.append('descripcion', this.remisiones.descripcion);
+    this.formData.append('idusuario', this.nmuser);
     this.remservi.RegistrarRemisiones(this.formData).subscribe(
       res => {
         Swal.close();
@@ -44,7 +62,7 @@ export class RemisionesComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        location.reload();
+        this.router.navigateByUrl('/Market');
       }
     );
   }

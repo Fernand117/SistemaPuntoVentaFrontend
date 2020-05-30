@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <form (ngSubmit)="Actualizar(form)" #form="ngForm">
+            <div class="dts" *ngFor="let items of productodetalle">
+                <div class="encabezado">
+                    <h4>Nombre del producto</h4>
+                    <input type="text" name="nombre" id="nombre" value="{{items.nombre}}" placeholder="{{items.nombre}}" class="form-control" [(ngModel)]="productos.nombre">
+                    <hr>
+                </div>
+                <div class="contenido">
+                    <div class="imagenproducto">
+                        <img src="{{ items.imagen }}" alt="" class="ImgProd">
+                        <h4>Imagen del producto</h4>
+                        <input type="file" (change)="cargar_imagen($event)" [(ngModel)]="productos.imagen" name="imagen" id="imagen" class="form-control-file" accept="image/jpeg">
+                    </div>
+                    <div class="detallesproducto">
+                        <h3>Descripción del producto</h3>
+                        <input type="text" name="descripcion" id="descripcion" value="{{items.descripcion}}" placeholder="{{items.descripcion}}" class="form-control" [(ngModel)]="productos.descripcion">
+                        <h5>Categoría</h5>
+                        <select class="form-control" [(ngModel)]="productos.idcategoria" name="idcategoria" id="idcategoria">
+                          <option *ngFor="let item of categorias; let i = index" value="{{item.id}}">  {{item.nombre}}</option>
+                        </select>
+                        <h5>Subcategoria</h5>
+                        <select class="form-control" [(ngModel)]="productos.idsubcategoria" name="idsubcategoria" id="idsubcategoria">
+                          <option value="0" selected>Selecciona una Subcategoria</option>
+                          <option value="" *ngFor="let item of subcategorias; let i = index; let cat of categorias" value="{{item.id}}">{{item.subcategoria}} -> {{cat.categoria}} </option>
+                        </select>
+                        <h5>Marca</h5>
+                        <select class="form-control" [(ngModel)]="productos.idmarca" name="idmarca" id="idmarca">
+                          <option value="0" selected>Selecciona una Marca</option>
+                          <option value="" *ngFor="let item of marcas; let i = index" value="{{item.id}}" >{{item.nombre}} </option>
+                        </select>
+                        <h5>Provedor</h5>
+                        <select class="form-control" [(ngModel)]="productos.idprovedor" name="idprovedor" id="idprovedor">
+                          <option value="0" selected>Selecciona un Provedor</option>
+                          <option value="" *ngFor="let item of provedores; let i = index" value="{{item.id}}">{{item.nombre}} </option>
+                        </select>
+                        <h5>Precio base del producto</h5>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                            </div>
+                            <input type="number" class="form-control" id="precio" name="precio" placeholder="{{items.precio}}" [(ngModel)]="productos.precio" value="{{items.precio}}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">MXN</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Actualizar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

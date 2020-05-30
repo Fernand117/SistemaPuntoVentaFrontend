@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RemisionesServicesService {
-
-  private url = "http://127.0.0.1:8000/api";
+  private url = "http://apiventas.com/api";
+  //private url = "http://127.0.0.1:8000/api";
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +24,9 @@ export class RemisionesServicesService {
 
   EliminarRemision(id: number) {
     return this.http.delete(`${ this.url }/remisiones/eliminar/${id}`);
+  }
+
+  ActualizarRemision(datos: any) {
+    return this.http.post(`${ this.url }/remisiones/actualizar`, datos);
   }
 }

@@ -1,3 +1,5 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
 <div class="caja">
     <div class="container">
         <h1>Productos admin</h1>
@@ -12,6 +14,16 @@
                 <input type="text" class="form-control" placeholder="Producto" [(ngModel)]="productosM.nombre" name="nombre" id="nombre">
                 <h5>Descripción</h5>
                 <input type="text" class="form-control" placeholder="Describe el producto de forma general" [(ngModel)]="productosM.descripcion" name="descripcion" id="descripcion">
+                <h5>Precio base del producto</h5>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" class="form-control" id="precio" name="precio" placeholder="25.50" [(ngModel)]="productosM.precio">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">MXN</div>
+                    </div>
+                </div>
                 <h5>Imagen</h5>
                 <input type="file" class="form-control-file" (change)="cargar_imagen($event)" [(ngModel)]="productosM.imagen" name="imagen" id="imagen" accept="image/jpeg">
             </div>
@@ -53,7 +65,9 @@
                     <th scope="col">Subcategoria</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Provedor</th>
-                    <th scope="col">Opciones</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody class="tbody">
@@ -65,7 +79,13 @@
                     <td>{{item.subcategoria}}</td>
                     <td>{{item.marca}}</td>
                     <td>{{item.provedor}}</td>
-                    <td><button class="btn bl btn-danger">Eliminar</button></td>
+                    <td>${{item.precio}}MXN</td>
+                    <td>
+                        <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" [routerLink]="['/Productos/Editar', item.codigo]">Editar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

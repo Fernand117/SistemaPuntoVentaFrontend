@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <h1>Lista de productos</h1>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr class="bg-primary tr">
+                <th scope="col">#</th>
+                <th scope="col">Código</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Fecha de ingreso</th>
+                <th scope="col">Remisión</th>
+                <th scope="col">Precio</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <tr *ngFor="let item of lista; let i = index">
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.idproducto}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.fecha_ingreso}}</td>
+                <td>{{item.remision_compra}}</td>
+                <td class="lbprecio">${{item.precio}} MXN</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="totalCompra" *ngFor="let tl of total">
+        <h1 class="lbtotal">Total: ${{tl.total}} MXN</h1>
+    </div>
+</div>

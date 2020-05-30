@@ -17,7 +17,9 @@ export class RemisionesModule {
   descripcion: string;
   total: number;
   idusuario: number;
+  venta: number;
   constructor() {
     this.idusuario = 1;
+    this.venta = 1;
   }
 }

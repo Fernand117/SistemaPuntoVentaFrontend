@@ -3,6 +3,7 @@ import { ProductosServiceService } from '../../services/productos-service.servic
 import { SalidasModule } from '../../models/salidas/salidas.module';
 import { SalidasServiceService } from '../../services/salidas-service.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class SalidasComponent implements OnInit {
 
   constructor(
     private prodservice: ProductosServiceService,
-    private salservice: SalidasServiceService
+    private salservice: SalidasServiceService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class SalidasComponent implements OnInit {
     );
   }
 
-  RegistrarSalida() {
+  RegistrarSalida(form) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -56,7 +58,7 @@ export class SalidasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        location.reload();
+        this.router.navigateByUrl('/Market');
       }
     );
   }

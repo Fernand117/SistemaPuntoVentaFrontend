@@ -3,6 +3,7 @@ import { SubCategoriasServiceService } from 'src/app/services/sub-categorias-ser
 import { SubCategoriasModule } from '../../models/sub-categorias/sub-categorias.module';
 import Swal from 'sweetalert2';
 import { CategoriasServiceService } from '../../services/categorias-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subcategorias',
@@ -16,8 +17,10 @@ export class SubcategoriasComponent implements OnInit {
   subcategoria: SubCategoriasModule = new SubCategoriasModule();
   formData = new FormData();
 
-  constructor(private subcategoriasservice: SubCategoriasServiceService,
-              private catservi: CategoriasServiceService) { }
+  constructor(
+    private subcategoriasservice: SubCategoriasServiceService,
+    private catservi: CategoriasServiceService,
+    private router: Router) { }
 
   ngOnInit() {
     this.subcategoriasservice.ListarSubcategorias().subscribe(
@@ -40,7 +43,7 @@ export class SubcategoriasComponent implements OnInit {
     }
   }
 
-  guardar() {
+  guardar(form) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -56,7 +59,7 @@ export class SubcategoriasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        location.reload();
+        this.router.navigateByUrl('/Inicio');
       }
     );
   }

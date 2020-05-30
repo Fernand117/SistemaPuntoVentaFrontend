@@ -4,6 +4,7 @@ import { AlmacenModule } from '../../models/almacen/almacen.module';
 import { ProductosModule } from '../../models/productos/productos.module';
 import { ProductosServiceService } from '../../services/productos-service.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-almacen',
@@ -20,12 +21,13 @@ export class AlmacenComponent implements OnInit {
   formData = new FormData();
 
   constructor(private almserv: AlmacenServicesService,
-              private prodserv: ProductosServiceService) { }
+              private prodserv: ProductosServiceService,
+              private router: Router) { }
 
   ngOnInit() {
     this.almserv.ListarAlmacen().subscribe(
       res => {
-        this.datos = res['Almacen'];
+        this.datos = res['Stock'];
       }
     );
     this.prodserv.ListarProductos().subscribe(
@@ -34,28 +36,4 @@ export class AlmacenComponent implements OnInit {
       }
     );
   }
-
-  guardar(){
-    Swal.fire({
-      icon: 'info',
-      title: 'Advertencia',
-      text: 'Espera por favor'
-    });
-    Swal.showLoading();
-    this.formData.append('idproducto', this.almacen.idproducto.toString());
-    this.formData.append('cantidad', this.almacen.cantidad.toString());
-    this.formData.append('fechaingreso', this.almacen.fechaingreso);
-    this.almserv.RegistrarAlmacen(this.formData).subscribe(
-      res => {
-        Swal.close();
-        Swal.fire({
-          icon: 'info',
-          title: 'Alerta',
-          text: res['Mensaje']
-        });
-        location.reload();
-      }
-    );
-  }
-
 }

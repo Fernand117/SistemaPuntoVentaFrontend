@@ -17,6 +17,16 @@ import { RemisionesComponent } from './pages/remisiones/remisiones.component';
 import { DetallesRemisionComponent } from './pages/detalles-remision/detalles-remision.component';
 import { ProductsAddComponent } from './pages/products-add/products-add.component';
 import { SalidasComponent } from './pages/salidas/salidas.component';
+import { ComprasComponent } from './pages/compras/compras.component';
+import { RegistrarComponent } from './pages/registrar/registrar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProductsEditComponent } from './pages/productos/products-edit/products-edit.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { ProvedoresComponent } from './pages/provedores/provedores.component';
+import { ComprasAdminComponent } from './pages/compras/compras-admin/compras-admin.component';
+import { DetallesComprasComponent } from './pages/detalles-compras/detalles-compras.component';
+import { ListaDetallesComprasComponent } from './pages/lista-detalles-compras/lista-detalles-compras.component';
+import { ProductosFiltroComponent } from './pages/productos-filtro/productos-filtro.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +43,17 @@ import { SalidasComponent } from './pages/salidas/salidas.component';
     RemisionesComponent,
     DetallesRemisionComponent,
     ProductsAddComponent,
-    SalidasComponent
+    SalidasComponent,
+    ComprasComponent,
+    RegistrarComponent,
+    LoginComponent,
+    ProductsEditComponent,
+    ClientesComponent,
+    ProvedoresComponent,
+    ComprasAdminComponent,
+    DetallesComprasComponent,
+    ListaDetallesComprasComponent,
+    ProductosFiltroComponent
   ],
   imports: [
     BrowserModule,

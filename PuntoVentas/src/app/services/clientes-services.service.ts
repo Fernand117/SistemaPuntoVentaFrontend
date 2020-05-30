@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClientesServicesService {
 
-  private url = "http://127.0.0.1:8000/api";
+  private url = "http://apiventas.com/api";
+  //private url = "http://127.0.0.1:8000/api";
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +17,18 @@ export class ClientesServicesService {
 
   ListarClientes() {
     return this.http.get(`${ this.url }/clientes`);
+  }
+
+  ListarClienteDetalle(datos: any) {
+    return this.http.post(`${ this.url }/cliente/detalle`, datos);
+  }
+
+  RegisrarClientes(datos: any) {
+    return this.http.post(`${ this.url }/clientes/nuevo`, datos);
+  }
+
+  EliminarCliente(id: number) {
+    return this.http.delete(`${ this.url }/clientes/eliminar/${id}`);
   }
 
 }

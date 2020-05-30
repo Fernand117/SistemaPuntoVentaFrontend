@@ -1,3 +1,5 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
 <div class="caja">
     <div class="container">
         <div class="cont">
@@ -15,7 +17,7 @@
                 <button type="submit" class="btn btn-success">Añadir nueva categoria</button>
             </form>
         </div>
-        <div class="cat" *ngFor="let item of datos; let i = index">
+        <div class="cat" *ngFor="let item of datos; let i = index" [routerLink]="['/Productos/Filtro', item.nombre]">
             <img src="{{item.imagen}}" alt="">
             <h4>{{item.nombre}}</h4>
             <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>

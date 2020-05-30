@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class DetallesRemisionModule {
+  id: number;
   idremision: string;
   idcliente: number;
   idproducto: string;

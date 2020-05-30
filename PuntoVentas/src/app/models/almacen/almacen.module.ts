@@ -13,6 +13,7 @@ export class AlmacenModule {
   idproducto: number;
   cantidad: number;
   fechaingreso: string;
+  idcompra: number;
   estado: number;
   constructor() {
     this.estado = 1;

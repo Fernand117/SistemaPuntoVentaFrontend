@@ -1,42 +1,27 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
 <div class="caja">
     <div class="container">
         <h1>Almacen general</h1>
         <hr>
     </div>
 
-    <form class="container cto" (ngSubmit)="guardar(form)" #form="ngForm">
-        <p>Formulario para ingresar productos al almacén general general</p>
-        <h5>Productos</h5>
-        <select class="form-control" [(ngModel)]="almacen.idproducto" name="idcategoria" id="idcategoria">
-          <option value="0" selected>--- Selecciona un producto ---</option> <!-- not selected / blank option -->
-          <option *ngFor="let item of productos; let i = index" value="{{item.codigo}}"># {{item.codigo}} | {{item.nombre}}</option>
-        </select>
-        <h5>Cantidad</h5>
-        <input [(ngModel)]="almacen.cantidad" type="number" name="cantidad" id="cantidad" class="form-control">
-        <h5>Fecha de ingreso</h5>
-        <input [(ngModel)]="almacen.fechaingreso" class="form-control" type="date" name="fechaingreso" id="fechaingreso">
-        <br>
-        <button type="submit" class="btn btn-success">Registrar</button>
-    </form>
-
     <div class="container ct">
         <table class="table">
             <thead>
                 <tr class="bg-primary tr">
-                    <th scope="col">#</th>
                     <th scope="col">Código</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Existencia</th>
-                    <th scope="col">Fecha de ingreso</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Stock</th>
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr *ngFor="let item of datos; let i of index">
-                    <th scope="row">{{i.id}}</th>
-                    <td> {{item.idproducto}} </td>
+                <tr *ngFor="let item of datos">
+                    <th scope="row"> {{item.idproducto}} </th>
                     <td> {{item.nombre}} </td>
-                    <td> {{item.cantidad}} </td>
-                    <td> {{item.fecha_ingreso}} </td>
+                    <td> {{item.descripcion}} </td>
+                    <td> {{item.stock}} </td>
                 </tr>
             </tbody>
         </table>

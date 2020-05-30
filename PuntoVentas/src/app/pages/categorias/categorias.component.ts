@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriasServiceService } from '../../services/categorias-service.service';
 import { CategoriasModule } from 'src/app/models/categorias/categorias.module';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorias',
@@ -14,7 +15,9 @@ export class CategoriasComponent implements OnInit {
   categorias: CategoriasModule = new CategoriasModule();
   formData = new FormData();
 
-  constructor(private categoriasservice: CategoriasServiceService) { }
+  constructor(
+    private categoriasservice: CategoriasServiceService,
+    private router: Router) { }
 
   ngOnInit() {
     this.categoriasservice.ListarCategorias().subscribe(
@@ -31,7 +34,7 @@ export class CategoriasComponent implements OnInit {
     }
   }
 
-  guardar() {
+  guardar(form) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -46,7 +49,7 @@ export class CategoriasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        location.reload();
+        this.router.navigateByUrl('/Inicio');
       }
     );
   }

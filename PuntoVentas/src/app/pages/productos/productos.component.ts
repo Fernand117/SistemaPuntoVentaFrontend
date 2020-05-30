@@ -64,20 +64,21 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  guardar() {
+  guardar(form) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
       text: 'Esperar por favor'
     });
     Swal.showLoading();
-    this.formData.append('codigo', this.productosM.codigo.toString());
+    this.formData.append('codigo', this.productosM.codigo);
     this.formData.append('nombre', this.productosM.nombre);
     this.formData.append('descripcion', this.productosM.descripcion);
     this.formData.append('idcategoria', this.productosM.idcategoria.toString());
     this.formData.append('idsubcategoria', this.productosM.idsubcategoria.toString());
     this.formData.append('idmarca', this.productosM.idmarca.toString());
     this.formData.append('idprovedor', this.productosM.idprovedor.toString());
+    this.formData.append('precio', this.productosM.precio.toString());
     this.prodservice.RegistrarProducto(this.formData).subscribe(
       res => {
         Swal.close();
@@ -86,8 +87,34 @@ export class ProductosComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        location.reload();
+        this.route.navigateByUrl('/Inicio');
       }
     );
+  }
+
+
+  eliminar(producto: ProductosModule, i: number) {
+    Swal.fire({
+      title: 'Alerta',
+      text: 'Eliminar categoria ' + producto.nombre,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si'
+    }).then((result) => {
+      if (result.value) {
+        this.prodservice.EliminarProducto(producto.codigo).subscribe(
+          res => {
+            Swal.fire({
+              icon: 'info',
+              title: 'Alerta',
+              text: res['Mensaje']
+            });
+            this.productos.splice(i, 1);
+          }
+        );
+      }
+    });
   }
 }

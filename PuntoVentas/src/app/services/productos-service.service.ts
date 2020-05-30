@@ -7,7 +7,7 @@ import { ProductosModule } from '../models/productos/productos.module';
 })
 export class ProductosServiceService {
 
-  private url = "http://127.0.0.1:8000/api";
+  private url = "http://apiventas.com/api";
 
   constructor(private http: HttpClient) { }
 
@@ -25,5 +25,17 @@ export class ProductosServiceService {
 
   ListarProductosDetalles(datos: any) {
     return this.http.post(`${ this.url }/productos/add`, datos);
+  }
+
+  FiltrarProducto(id: string) {
+    return this.http.get(`${ this.url }/productos/filtro/${id}`);
+  }
+
+  EditarProducto(id: number, datos: any) {
+    return this.http.post(`${ this.url }/producto/editar/${id}`, datos);
+  }
+
+  EliminarProducto(id: string) {
+    return this.http.delete(`${ this.url }/productos/eliminar/${id}`);
   }
 }

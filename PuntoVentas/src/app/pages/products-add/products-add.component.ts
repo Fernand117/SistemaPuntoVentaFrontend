@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductosServiceService } from '../../services/productos-service.service';
-import { RemisionesServicesService } from '../../services/remisiones-services.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ClientesServicesService } from '../../services/clientes-services.service';
-import { DetallesRemisionModule } from '../../models/detalles-remision/detalles-remision.module';
+import {Component, OnInit} from '@angular/core';
+import {ProductosServiceService} from '../../services/productos-service.service';
+import {RemisionesServicesService} from '../../services/remisiones-services.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import {ClientesServicesService} from '../../services/clientes-services.service';
+import {DetallesRemisionModule} from '../../models/detalles-remision/detalles-remision.module';
 import Swal from 'sweetalert2';
-import { DetallesRemisionService } from '../../services/detalles-remision.service';
+import {DetallesRemisionService} from '../../services/detalles-remision.service';
 
 @Component({
   selector: 'app-products-add',
@@ -27,7 +27,8 @@ export class ProductsAddComponent implements OnInit {
     private detallesservice: DetallesRemisionService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   id = this.route.snapshot.paramMap.get('id');
 
@@ -51,7 +52,7 @@ export class ProductsAddComponent implements OnInit {
     );
   }
 
-  registrar() {
+  registrar(form) {
     Swal.fire({
       icon: 'info',
       title: 'Espere por favor',
@@ -60,10 +61,9 @@ export class ProductsAddComponent implements OnInit {
     Swal.showLoading();
     this.formData.append('idremision', this.detalles.idremision);
     this.formData.append('idcliente', this.detalles.idcliente.toString());
-    this.formData.append('idproducto', this.detalles.idproducto);
+    this.formData.append('idproducto', this.id);
     this.formData.append('almacen', this.detalles.almacen);
     this.formData.append('cantidad', this.detalles.cantidad.toString());
-    this.formData.append('precio', this.detalles.precio.toString());
     this.detallesservice.RegistrarDetalleRemision(this.formData).subscribe(
       res => {
         Swal.close();
