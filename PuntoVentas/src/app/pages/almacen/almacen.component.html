@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Almacen general</h1>
+        <hr>
+    </div>
+
+    <div class="container ct">
+        <table class="table">
+            <thead>
+                <tr class="bg-primary tr">
+                    <th scope="col">Código</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Stock</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let item of datos">
+                    <th scope="row"> {{item.idproducto}} </th>
+                    <td> {{item.nombre}} </td>
+                    <td> {{item.descripcion}} </td>
+                    <td> {{item.stock}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

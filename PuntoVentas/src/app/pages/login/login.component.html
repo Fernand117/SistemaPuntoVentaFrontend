@@ -1,0 +1,14 @@
+<div class="body">
+    <div class="container">
+        <h4>Inicia sesión para continuar</h4>
+        <hr>
+        <form (ngSubmit)="login(form)" #form="ngForm">
+            <h5>Correo</h5>
+            <input type="email" name="email" id="email" class="form-control" [(ngModel)]="auth.email">
+            <h5>Contraseña</h5>
+            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="auth.password">
+            <br>
+            <button class="btn btn-success form-control">Iniciar sesión</button>
+        </form>
+    </div>
+</div>

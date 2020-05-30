@@ -1,0 +1,93 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Productos admin</h1>
+        <hr>
+    </div>
+    <div class="container cont">
+        <form (ngSubmit)="guardar(form)" #form="ngForm">
+            <div class="cont1">
+                <h5>Código</h5>
+                <input type="number" class="form-control" placeholder="2387" [(ngModel)]="productosM.codigo" name="codigo" id="codigo">
+                <h5>Nombre</h5>
+                <input type="text" class="form-control" placeholder="Producto" [(ngModel)]="productosM.nombre" name="nombre" id="nombre">
+                <h5>Descripción</h5>
+                <input type="text" class="form-control" placeholder="Describe el producto de forma general" [(ngModel)]="productosM.descripcion" name="descripcion" id="descripcion">
+                <h5>Precio base del producto</h5>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" class="form-control" id="precio" name="precio" placeholder="25.50" [(ngModel)]="productosM.precio">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">MXN</div>
+                    </div>
+                </div>
+                <h5>Imagen</h5>
+                <input type="file" class="form-control-file" (change)="cargar_imagen($event)" [(ngModel)]="productosM.imagen" name="imagen" id="imagen" accept="image/jpeg">
+            </div>
+            <div class="cont2">
+                <h5>Categoría</h5>
+                <select class="form-control" [(ngModel)]="productosM.idcategoria" name="idcategoria" id="idcategoria">
+                  <option value="0" selected>Selecciona una Categoria</option>
+                  <option value="" *ngFor="let item of categorias; let i = index" value="{{item.id}}">  {{item.nombre}}</option>
+                </select>
+                <h5>Subcategoria</h5>
+                <select class="form-control" [(ngModel)]="productosM.idsubcategoria" name="idsubcategoria" id="idsubcategoria">
+                  <option value="0" selected>Selecciona una Subcategoria</option>
+                  <option value="" *ngFor="let item of subcategorias; let i = index; let cat of categorias" value="{{item.id}}">{{item.subcategoria}} -> {{cat.categoria}} </option>
+                </select>
+                <h5>Marca</h5>
+                <select class="form-control" [(ngModel)]="productosM.idmarca" name="idmarca" id="idmarca">
+                  <option value="0" selected>Selecciona una Marca</option>
+                  <option value="" *ngFor="let item of marcas; let i = index" value="{{item.id}}" >{{item.nombre}} </option>
+                </select>
+                <h5>Provedor</h5>
+                <select class="form-control" [(ngModel)]="productosM.idprovedor" name="idprovedor" id="idprovedor">
+                  <option value="0" selected>Selecciona un Provedor</option>
+                  <option value="" *ngFor="let item of provedores; let i = index" value="{{item.id}}">{{item.nombre}} </option>
+                </select>
+            </div>
+            <div class="cont3">
+                <button type="submit" class="btn btn-success">Registrar productos</button>
+            </div>
+        </form>
+    </div>
+    <div class="container ct">
+        <table class="table">
+            <thead>
+                <tr class="bg-primary tr">
+                    <th scope="col">Código</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Subcategoria</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Provedor</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let item of productos; let i of index">
+                    <th scope="row">{{i.codigo}}</th>
+                    <td><img src="{{item.imagen}}" alt="" class="ImgProd"></td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.categoria}}</td>
+                    <td>{{item.subcategoria}}</td>
+                    <td>{{item.marca}}</td>
+                    <td>{{item.provedor}}</td>
+                    <td>${{item.precio}}MXN</td>
+                    <td>
+                        <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" [routerLink]="['/Productos/Editar', item.codigo]">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

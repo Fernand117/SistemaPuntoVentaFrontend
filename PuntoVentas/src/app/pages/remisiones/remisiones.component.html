@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Lista de remisiones</h1>
+        <hr>
+        <form (ngSubmit)="guardar(form)" #form="ngForm">
+            <h4>Crear nueva remisión</h4>
+            <br>
+            <h6>Fecha de remisión</h6>
+            <input type="date" name="fecha" id="fecha" class="form-control" [(ngModel)]="remisiones.fecharemision">
+            <h6>Estado de la remisión</h6>
+            <input type="text" name="estado" id="estado" class="form-control" placeholder="Estado" [(ngModel)]="remisiones.estadoremision">
+            <h6>Ingrese una descripción de la remisión</h6>
+            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripción" [(ngModel)]="remisiones.descripcion">
+            <br>
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </form>
+    </div>
+    <div class="container ct">
+        <table class="table">
+            <thead>
+                <tr class="bg-primary tr">
+                    <th scope="col">Remision</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Seleccionar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let item of datos; let i = index">
+                    <th scope="row">A00{{item.numero_remision}}</th>
+                    <td>{{item.fecha_remision}}</td>
+                    <td>{{item.estado_remision}}</td>
+                    <td>{{item.descripcion}}</td>
+                    <td>$ {{item.total}} MXN</td>
+                    <td><button class="btn bl btn-success" [routerLink]="['/DetallesRemisiones', item.numero_remision]">Seleccionar</button></td>
+                    <td><button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

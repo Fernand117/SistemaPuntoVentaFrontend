@@ -1,0 +1,206 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Detalles de remision</h1>
+        <hr>
+
+    </div>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <!-- Desde el botón debere llamar a la función que cargue la lista de los productos que se vayan añadiendo de esta forma, cuando le de click visualizará la lista -->
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Añadir nuevo producto
+          </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+
+                    <form (ngSubmit)="registrar(form)" #form="ngForm">
+                        <div class="formulario">
+                            <h4>Productos</h4>
+                            <select class="form-control" name="idproducto" id="idproducto" [(ngModel)]="detalles.idproducto">
+                <option value="0" selected>Selecciona un producto</option>
+                <option value="" *ngFor="let prod of productos; let i = index" value="{{prod.codigo}}">
+                  Producto: {{prod.nombre}} ${{prod.precio}} MXN
+                </option>
+              </select>
+                            <h4>Clientes</h4>
+                            <select class="form-control" name="idcliente" id="idcliente" [(ngModel)]="detalles.idcliente">
+                <option value="0" selected>Selecciona un cliente</option>
+                <option value="" *ngFor="let client of clientes; let i = index" value="{{client.id}}">
+                  Cliente: {{client.nombre}}</option>
+              </select>
+                            <h4>Almacén</h4>
+                            <select class="form-control" name="almacen" id="almacen" [(ngModel)]="detalles.almacen">
+                <option value="0">Selecciona un almacén</option>
+                <option value="general">general</option>
+                <option value="salida">salida</option>
+              </select>
+                            <h4>Seleccione la cantidad</h4>
+                            <input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="1" [(ngModel)]="detalles.cantidad">
+                            <button type="submit" class="btn btn-success">Añadir producto a la remisión</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <!-- Desde el botón debere llamar a la función que cargue la lista de los productos que se vayan añadiendo de esta forma, cuando le de click visualizará la lista -->
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne" (click)="cargarProductos()">Lista de productos
+          </button>
+                </h2>
+            </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                <div class="card-body">
+                    <div id="areaImprimir" class="container ct">
+
+                        <table class="table">
+                            <thead>
+                                <tr class="bg-primary tr">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Remision</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio unitario</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col" class="coleliminar">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody">
+                                <tr *ngFor="let item of datos; let i = index">
+                                    <th scope="row">{{i + 1}}</th>
+                                    <th>A00{{item.numero_remision}}</th>
+                                    <td>{{item.fecha_remision}}</td>
+                                    <td>{{item.cantidad}}</td>
+                                    <td> {{item.cliente}} </td>
+                                    <td> {{item.codigo}} </td>
+                                    <td> {{item.producto}} </td>
+                                    <td> ${{item.precio}}</td>
+                                    <th>${{item.subtotal}}</th>
+                                    <td>
+                                        <button class="btn bl btn-danger" (click)="eliminar(item, item.codigo ,i)">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <form (ngSubmit)="venta(form)" #form="ngForm">
+                            <div class="csb" *ngFor="let item of subtotal">
+                                <h1 class="ltotal">Subtotal: ${{ item.subtotal }}</h1>
+                            </div>
+                            <div class="ctotal" *ngFor="let item of total">
+                                <h1 class="ltotal">IVA: {{iva}}</h1>
+                                <h1 class="ltotal">Total: ${{ item.total }}</h1>
+                                <button type="submit" class="btn bl btn-success">Venta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTree" aria-expanded="false" aria-controls="collapseTwo" (click)="cargarProductos()">
+            Ticket
+          </button>
+                </h2>
+            </div>
+            <div id="collapseTree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div id="tiket" class="tiket">
+                        <div class="datosTiket">
+                            <div class="img"><img src="../../../assets/img/logoone..jpg" alt="" class="imglogo"></div>
+                            <div class="datos">
+                                <h1 class="dt">Onésimo Ramírez Luna</h1>
+                                <h1 class="dt">R.F.C RALO750216RKA</h1>
+                                <h1 class="dt">San José, Fortín, TEL.2712118859</h1>
+                            </div>
+                            <div class="dts">
+                                <div *ngFor="let dts of dtsremision">
+                                    <h5>Remisión</h5>
+                                    A00{{dts.numero_remision}}
+                                    <h5>Fecha</h5>
+                                    {{dts.fecha_remision}}
+                                </div>
+                            </div>
+                            <div class="dtc">
+                                <div *ngFor="let dts of dtsremision">
+                                    <table class="tableC">
+                                        <thead>
+                                            <tr>
+                                                <th>Cliente</th>
+                                                <th>Dirección</th>
+                                                <th>Telefono</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td> {{dts.cliente}} {{dts.apellidop}} {{dts.apellidom}} </td>
+                                                <td> {{dts.direccion}} </td>
+                                                <td> {{dts.telefono}} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <table class=" tbTiket">
+                            <thead>
+                                <tr class="bg-primary tr">
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio unitario</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody tbodyTiket">
+                                <tr *ngFor="let item of datos; let i of index">
+                                    <td class="tbodyTiket"> {{item.codigo}} </td>
+                                    <td class="tbodyTiket"> {{item.producto}} </td>
+                                    <td class="tbodyTiket">{{item.cantidad}}</td>
+                                    <td class="tbodyTiket"> ${{item.precio}}</td>
+                                    <th class="thprecio">${{item.subtotal}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="csb" *ngFor="let item of subtotal">
+                            <h1 class="ltotal">Subtotal: ${{ item.subtotal }}</h1>
+                        </div>
+                        <div class="ctotal" *ngFor="let item of total">
+                            <h1 class=" ltotal ">IVA: {{iva}}</h1>
+                            <h1 class="ltotal ">Total: ${{ item.total }}</h1>
+                        </div>
+
+                        <div class="ctotalLetras">
+                            <h1 class="ltotalletras" id="letras ">( {{letras}} )</h1>
+                        </div>
+                        <div class="leyenda ">
+                            <p>Debo y pagaré a la orden de Onésimo Ramírez Luna, en la ciudad o en cualquier otra que se requiera de pago el día ______ de __________________________ del ____________ la cantidad de ________________________________ (___________________________________________________________________________________________________________)M.N,
+                                valor de las mercancias arriba detalladas y que recibí de conformidad. Este pagaré es mercantil y está regido por la ley general de titulos y operaciones de crédito en su artículo 173 parte final u artículos correlativos,
+                                por no ser pagaré domiciliado. No pagandose a su vencimiento el importe de este pagaré causará réditos a razón del 2% mensual. El suscritor no renuncia expresamente el fuero de su domicilio y podrá ser demandado en cualquier
+                                lugar
+                            </p>
+                            <p class="fm ">____________________________________________________________________</p>
+                            <p class="fm ">FIRMA</p>
+                        </div>
+                    </div>
+                    <button class="btn bl btn-info " (click)="imprimir( 'tiket') " value="imprimir div ">Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

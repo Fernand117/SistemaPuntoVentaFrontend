@@ -1,0 +1,48 @@
+<div class="menu navbar-dark bg-dark">
+    <div class="profile" *ngFor="let item of tokenUser">
+        <div class="namepro"><span><img src="../../../assets/img/icons8-usuario-50.png" class="ImgIcon"></span> {{item.nombre}} </div>
+    </div>
+    <ul class="nav flex-column">
+        <li class="nav-item dropdown b">
+            <button class="btn btn-danger" (click)="logout()">Cerrar sesión</button>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/Almacen']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-caja-llena-50.png" class="ImgIcon"></span> Almacén</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Salidas']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-salida-50.png" class="ImgIcon"></span> Salidas</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Compras']"> <span><img src="../../../assets/img/icons8-etiqueta-de-precio-usd-50.png" class="ImgIcon"></span> Compras</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Remisiones']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-tarea-50.png" class="ImgIcon"></span> Remisiones</a>
+        </li>
+        <div class="dropdown-divider "></div>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Categorias']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-marcapáginas-50.png" class="ImgIcon"></span> Categorias</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Subcategorias']"> <span><img src="../../../assets/img/icons8-lazo-marcapáginas-50.png" class="ImgIcon"></span> Subcategorias </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Marcas']"> <span><img src="../../../assets/img/icons8-etiquetas-50.png" class="ImgIcon"></span> Marcas</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Productos']" [routerLinkActive]="['active']"> <span><img src="../../../assets/img/icons8-carretilla-de-mano-de-entrega-50.png" class="ImgIcon"></span> Productos</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Provedores']"> <span><img src="../../../assets/img/icons8-agrupar-objetos-50.png" class="ImgIcon"></span>Provedores</a>
+        </li>
+        <div class="dropdown-divider "></div>
+        <li class="nav-item ">
+            <a class="nav-link " [routerLink]="['/Clientes']"> <span><img src="../../../assets/img/icons8-gestión-de-clientes-50.png" class="ImgIcon"></span> Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " [routerLink]="['/Registrar']"> <span><img src="../../../assets/img/icons8-grupo-de-usuarios-hombre-hombre-50.png" class="ImgIcon"></span> Usuarios</a>
+        </li>
+        <li class="nav-item f">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-copyright" aria-hidden="true">&copy;Fernando Leyva</i></a>
+        </li>
+    </ul>
+</div>

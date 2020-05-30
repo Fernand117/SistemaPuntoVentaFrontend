@@ -1,0 +1,23 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Compras-Detalles</h1>
+        <hr>
+    </div>
+
+    <form class="container cto" (ngSubmit)="guardar(form)" #form="ngForm">
+        <p>Formulario para ingresar productos a la compra actual</p>
+        <h5>Productos</h5>
+        <select class="form-control" [(ngModel)]="almacen.idproducto" name="idcategoria" id="idcategoria">
+          <option value="0" selected>--- Selecciona un producto ---</option> <!-- not selected / blank option -->
+          <option *ngFor="let item of productos; let i = index" value="{{item.codigo}}"># {{item.codigo}} | {{item.nombre}}</option>
+        </select>
+        <h5>Cantidad</h5>
+        <input [(ngModel)]="almacen.cantidad" type="number" name="cantidad" id="cantidad" class="form-control">
+        <h5>Fecha de ingreso</h5>
+        <input [(ngModel)]="almacen.fechaingreso" class="form-control" type="date" name="fechaingreso" id="fechaingreso">
+        <br>
+        <button type="submit" class="btn btn-success">Registrar</button>
+    </form>
+</div>

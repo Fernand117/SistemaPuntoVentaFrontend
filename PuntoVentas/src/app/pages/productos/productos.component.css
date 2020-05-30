@@ -1,0 +1,52 @@
+.caja {
+    position: fixed;
+    width: 80%;
+    height: 595px;
+    overflow: scroll;
+    margin-left: 20%;
+    margin-top: 4%;
+}
+
+.ct {
+    width: 95%;
+    height: 500px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    overflow: scroll;
+}
+
+.ImgProd {
+    width: 100px;
+}
+
+.table {
+    width: 100%;
+}
+
+.tbody {
+    overflow: scroll;
+}
+
+.tr {
+    color: white;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+.cont {
+    width: 90%;
+}
+
+.cont1,
+.cont2 {
+    padding: 10px;
+    height: 400px;
+    width: 50%;
+    float: left;
+}
+
+.btn {
+    margin-left: 2%;
+}

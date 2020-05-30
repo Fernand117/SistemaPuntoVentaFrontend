@@ -1,0 +1,48 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <form (ngSubmit)="registrar(form)" #form="ngForm">
+        <div class="dts" *ngFor="let items of producto">
+            <div class="encabezado">
+                <h1> {{items.nombre}} </h1>
+                <hr>
+            </div>
+            <div class="contenido">
+                <div class="imagenproducto">
+                    <h4>#{{items.codigo}} </h4>
+                    <img src="{{ items.imagen }}" alt="" class="ImgProd">
+                </div>
+                <div class="detallesproducto">
+                    <h3>Descripción del producto</h3>
+                    <p> {{items.descripcion}} </p>
+                    <h6>Categoria: {{items.categoria}} </h6>
+                    <h6>Subcategoria: {{items.subcategoria}} </h6>
+                    <h6>Marca: {{items.marca}} </h6>
+                    <h4>$ {{items.precio}} MXN</h4>
+                </div>
+                <div class="formulario">
+                    <hr>
+                    <h4>Remisiones</h4>
+                    <select class="form-control" name="idremision" id="idremision" [(ngModel)]="detalles.idremision">
+                      <option value="0" selected>Selecciona una remisión</option>
+                      <option value="" *ngFor="let rem of remisiones; let i = index" value="{{rem.numero_remision}}">Remisión: A00{{rem.numero_remision}}</option>
+                    </select>
+                    <h4>Clientes</h4>
+                    <select class="form-control" name="idcliente" id="idcliente" [(ngModel)]="detalles.idcliente">
+                      <option value="0" selected>Selecciona un cliente</option>
+                      <option value="" *ngFor="let client of clientes; let i = index" value="{{client.id}}">Cliente: {{client.nombre}}</option>
+                    </select>
+                    <h4>Almacén</h4>
+                    <select class="form-control" name="almacen" id="almacen" [(ngModel)]="detalles.almacen">
+                      <option value="0">Selecciona un almacén</option>
+                      <option value="general">general</option>
+                      <option value="salida">salida</option>
+                    </select>
+                    <h4>Seleccione la cantidad</h4>
+                    <input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="1" [(ngModel)]="detalles.cantidad">
+                    <button type="submit" class="btn btn-success">Añadir producto a la remisión</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

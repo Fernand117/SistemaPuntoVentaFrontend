@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="ban">
+
+    </div>
+
+    <div class="container">
+        <h1>Productos</h1>
+        <hr class="hr-productos">
+        <div class="prod" *ngFor="let item of productos" [routerLink]="['/Productos/Añadir', item.codigo]">
+            <div class="img">
+                <img src="{{item.imagen}}" alt="" class="ImgProd">
+            </div>
+            <div class="cont">
+                <h6>{{item.nombre}}</h6>
+                <p> {{item.descripcion}} </p>
+                <div class="card-text"><small class="text-muted"> Categoria: {{item.categoria}}, Subcategoria: {{item.subcategoria}} </small></div>
+                <div class="card-text"><small class="text-muted"> Marca: {{item.marca}}</small></div>
+            </div>
+            <hr>
+            <div class="card-text price">
+                <h5>$ {{item.precio}} MXN</h5>
+            </div>
+        </div>
+    </div>
+
+</div>

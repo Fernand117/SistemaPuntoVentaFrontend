@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Salidas de productos</h1>
+        <hr>
+        <form class="form-group" (ngSubmit)="RegistrarSalida(form)" #form="ngForm">
+            <h4>Seleccione un producto</h4>
+            <select name="idproducto" id="idproducto" class="form-control" [(ngModel)]="salidas.idproducto">
+              <option value="0">Producto</option>
+              <option *ngFor="let prod of productoslista" value=" {{prod.codigo}} " >#{{prod.codigo}} | {{prod.nombre}}</option>
+            </select>
+            <h4>Cantidad de salida</h4>
+            <input type="number" name="cantidadsalida" id="cantidadsalida" placeholder="1" class="form-control" [(ngModel)]="salidas.cantidadsalida">
+            <h4>Cantidad de retorno</h4>
+            <input type="number" name="cantidadretorno" id="cantidadretorno" placeholder="1" class="form-control" [(ngModel)]="salidas.cantidadretorno">
+            <h4>Número de unidad</h4>
+            <input type="number" name="numerounidad" id="numerounidad" placeholder="1" class="form-control" [(ngModel)]="salidas.numerounidad">
+            <h4>Fecha de salida</h4>
+            <input type="date" name="fechasalida" id="fechasalida" class="form-control" [(ngModel)]="salidas.fechasalida">
+            <button class="btn btn-success" type="submit">Registrar salida</button>
+        </form>
+    </div>
+    <div class="container ct">
+        <table class="table">
+            <thead>
+                <tr class="bg-primary tr">
+                    <th scope="col">#</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad de salida</th>
+                    <th scope="col">Cantidad de retorno</th>
+                    <th scope="col">Numero de unidad</th>
+                    <th scope="col">Fecha de salida</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let item of datossalida; let i of index">
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{item.idproducto}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.cantidad_salida}}</td>
+                    <td>{{item.cantidad_retorno}}</td>
+                    <td>{{item.numero_unidad}}</td>
+                    <td>{{item.fecha_salida}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

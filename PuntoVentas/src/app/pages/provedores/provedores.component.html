@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Registrar nuevo provedor</h1>
+        <hr>
+        <form (ngSubmit)="RegistrarProvedor(form)" #form="ngForm">
+            <h4>Nombre del provedor</h4>
+            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="provedor.nombre">
+            <h4>Dirección</h4>
+            <input type="text" name="direccion" id="direccion" class="form-control" [(ngModel)]="provedor.direccion">
+            <h4>Telefono</h4>
+            <input type="number" name="telefono" id="telefono" class="form-control" [(ngModel)]="provedor.telefono">
+            <br>
+            <button type="submit" class="btn btn-success form-control">Registrar provedor</button>
+        </form>
+    </div>
+    <div class="container">
+        <h1>Tabla de provedores</h1>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr class="bg-primary tr">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let item of provedores; let i = index" [routerLink]="['/Productos/Filtro', item.nombre]">
+                    <td>{{item.nombre}}</td>
+                    <td> {{item.direccion}} </td>
+                    <td> {{item.telefono}} </td>
+                    <td>
+                        <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

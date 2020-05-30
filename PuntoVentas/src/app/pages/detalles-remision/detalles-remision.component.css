@@ -1,0 +1,198 @@
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #121212;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.caja {
+    position: fixed;
+    width: 82%;
+    height: 595px;
+    overflow: scroll;
+    margin-top: 4%;
+    margin-left: 18.3%;
+    /*background-color: rebeccapurple;*/
+}
+
+.container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.ct {
+    margin-bottom: 5%;
+}
+
+.tr {
+    color: white;
+}
+
+td {
+    font-size: 14px;
+}
+
+.ctotal {
+    width: 50%;
+    float: right;
+    margin-right: 10%;
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+
+.ctotalLetras {
+    width: 90%;
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.csb {
+    width: 50%;
+    float: right;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.ltotal {
+    font-size: 14px;
+    text-align: right;
+}
+
+.ltotalletras {
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.btn-success {
+    width: 26%;
+    float: right;
+}
+
+.tiket {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.accordion {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+}
+
+.tbTiket {
+    width: 90%;
+    font-size: 11px;
+}
+
+.datosTiket {
+    width: 90%;
+    height: 150px;
+}
+
+.tbodyTiket {
+    font-size: 10px;
+}
+
+.leyenda {
+    width: 90%;
+    float: left;
+    font-size: 11px;
+    text-align: justify;
+}
+
+.fm {
+    text-align: center;
+}
+
+.img {
+    width: 30%;
+    float: left;
+}
+
+.datos {
+    width: 50%;
+    text-align: center;
+    font-size: 11px;
+    float: left;
+}
+
+.dts {
+    float: left;
+    width: 20%;
+    text-align: right;
+    font-size: 11px;
+}
+
+.dt {
+    font-size: 11px;
+}
+
+.imglogo {
+    width: 100%;
+}
+
+h5 {
+    font-size: 11px;
+}
+
+.thprecio {
+    font-size: 11px;
+    text-align: right;
+}
+
+.formulario {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.dtc {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 2%;
+}
+
+.tableC {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+}

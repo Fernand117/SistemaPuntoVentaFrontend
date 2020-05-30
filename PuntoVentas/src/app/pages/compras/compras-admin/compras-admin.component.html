@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container">
+        <h1>Registro de compras</h1>
+        <hr>
+        <form (ngSubmit)="RegisrarCompras(form)" #form="ngForm">
+            <h5>Remisión de la compra</h5>
+            <input type="text" name="remisioncompra" id="remisioncompra" class="form-control" [(ngModel)]="compra.remision">
+            <h5>Fecha de entrega</h5>
+            <input type="date" name="fechaentrega" id="fechaentrega" class="form-control" [(ngModel)]="compra.fecha">
+            <h5>Provedor</h5>
+            <select name="idprovedor" id="idprovedor" class="form-control" [(ngModel)]="compra.idprovedor">
+              <option value="0">Selecciona un provedor</option>
+              <option *ngFor="let item of provedores" value="{{item.id}}"> {{item.id}} {{item.nombre}} </option>
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success">Registrar compra</button>
+        </form>
+    </div>
+</div>
