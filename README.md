@@ -1,7 +1,7 @@
 # Punto de venta (Diseño Frontend)
 
 # Versión del frontend 1.0
--
+
 Esta es la versión 1.0 del diseño de la aplicación web para el sistema punto de venta, orientado a los servicios automotrices.
 
 La aplicación web cuenta con las siguientes caracteríticas:
