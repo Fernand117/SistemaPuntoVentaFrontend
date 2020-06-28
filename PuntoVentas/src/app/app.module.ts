@@ -27,6 +27,7 @@ import { ComprasAdminComponent } from './pages/compras/compras-admin/compras-adm
 import { DetallesComprasComponent } from './pages/detalles-compras/detalles-compras.component';
 import { ListaDetallesComprasComponent } from './pages/lista-detalles-compras/lista-detalles-compras.component';
 import { ProductosFiltroComponent } from './pages/productos-filtro/productos-filtro.component';
+import { TicketComponent } from './pages/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ProductosFiltroComponent } from './pages/productos-filtro/productos-fil
     ComprasAdminComponent,
     DetallesComprasComponent,
     ListaDetallesComprasComponent,
-    ProductosFiltroComponent
+    ProductosFiltroComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

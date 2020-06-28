@@ -68,23 +68,21 @@ td {
 }
 
 .ctotal {
-    width: 50%;
+    width: 100%;
+    height: 100px;
     float: right;
     margin-right: 10%;
     margin-top: 0;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
 }
 
 .ctotalLetras {
-    width: 90%;
-    float: right;
-    margin-right: 10%;
-    margin-bottom: 5%;
     text-align: center;
 }
 
 .csb {
     width: 50%;
+    height: 50px;
     float: right;
     margin-right: 10%;
     margin-top: 5%;
@@ -97,7 +95,6 @@ td {
 
 .ltotalletras {
     width: 100%;
-    font-size: 12px;
     text-align: center;
 }
 
@@ -106,76 +103,10 @@ td {
     float: right;
 }
 
-.tiket {
-    width: 50%;
-    margin-left: 25%;
-}
-
 .accordion {
     width: 90%;
-    height: auto;
+    height: 800px;
     margin-left: 5%;
-}
-
-.tbTiket {
-    width: 90%;
-    font-size: 11px;
-}
-
-.datosTiket {
-    width: 90%;
-    height: 150px;
-}
-
-.tbodyTiket {
-    font-size: 10px;
-}
-
-.leyenda {
-    width: 90%;
-    float: left;
-    font-size: 11px;
-    text-align: justify;
-}
-
-.fm {
-    text-align: center;
-}
-
-.img {
-    width: 30%;
-    float: left;
-}
-
-.datos {
-    width: 50%;
-    text-align: center;
-    font-size: 11px;
-    float: left;
-}
-
-.dts {
-    float: left;
-    width: 20%;
-    text-align: right;
-    font-size: 11px;
-}
-
-.dt {
-    font-size: 11px;
-}
-
-.imglogo {
-    width: 100%;
-}
-
-h5 {
-    font-size: 11px;
-}
-
-.thprecio {
-    font-size: 11px;
-    text-align: right;
 }
 
 .formulario {
@@ -183,16 +114,6 @@ h5 {
     margin-left: 5%;
 }
 
-.dtc {
-    width: 100%;
-    float: left;
-    text-align: center;
-    font-size: 11px;
-    margin-top: 2%;
-}
-
-.tableC {
-    width: 100%;
-    text-align: center;
-    font-size: 11px;
+.btnTicket {
+    margin-bottom: 10%;
 }

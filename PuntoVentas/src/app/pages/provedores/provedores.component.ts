@@ -20,12 +20,16 @@ export class ProvedoresComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  obtenerProveedor() {
     this.provservice.ListarProvedores().subscribe(
       res => {
-        this.provedores = res['Provedores']
+        this.provedores = res['Provedores'];
       }
     );
+  }
+
+  ngOnInit() {
+    this.obtenerProveedor();
   }
 
   RegistrarProvedor(form) {
@@ -48,7 +52,7 @@ export class ProvedoresComponent implements OnInit {
         });
       }
     );
-    this.router.navigateByUrl('/Inicio');
+    this.obtenerProveedor();
   }
 
   eliminar(provedores: ProvedoresModule, i: number) {

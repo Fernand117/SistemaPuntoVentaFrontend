@@ -22,12 +22,16 @@ export class SubcategoriasComponent implements OnInit {
     private catservi: CategoriasServiceService,
     private router: Router) { }
 
+    obtenerSubcategoria() {
+      this.subcategoriasservice.ListarSubcategorias().subscribe(
+        res => {
+          this.datos = res['Subcategorias'];
+        }
+      );
+    }
+
   ngOnInit() {
-    this.subcategoriasservice.ListarSubcategorias().subscribe(
-      res => {
-        this.datos = res['Subcategorias'];
-      }
-    );
+    this.obtenerSubcategoria();
 
     this.catservi.ListarCategorias().subscribe(
       res => {
@@ -59,7 +63,7 @@ export class SubcategoriasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        this.router.navigateByUrl('/Inicio');
+        this.obtenerSubcategoria();
       }
     );
   }

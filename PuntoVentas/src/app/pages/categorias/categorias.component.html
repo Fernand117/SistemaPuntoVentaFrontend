@@ -17,9 +17,11 @@
                 <button type="submit" class="btn btn-success">Añadir nueva categoria</button>
             </form>
         </div>
-        <div class="cat" *ngFor="let item of datos; let i = index" [routerLink]="['/Productos/Filtro', item.nombre]">
-            <img src="{{item.imagen}}" alt="">
+        <div class="cat" *ngFor="let item of datos; let i = index">
+        <div class="redirect" [routerLink]="['/Productos/Filtro', item.nombre]">
+        <img src="{{item.imagen}}" alt="">
             <h4>{{item.nombre}}</h4>
+        </div>
             <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
         </div>
     </div>

@@ -29,12 +29,16 @@ export class ProductosComponent implements OnInit {
               private provser: ProvedoresServicesService,
               private route: Router) { }
 
-  ngOnInit() {
+  obtenerProductos() {
     this.prodservice.ListarProductos().subscribe(
       res => {
         this.productos = res['Productos'];
       }
     );
+  }
+
+  ngOnInit() {
+    this.obtenerProductos();
     this.catser.ListarCategorias().subscribe(
       res => {
         this.categorias = res['categorias'];
@@ -87,7 +91,7 @@ export class ProductosComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        this.route.navigateByUrl('/Inicio');
+        this.obtenerProductos();
       }
     );
   }

@@ -48,6 +48,10 @@ export class DetallesRemisionComponent implements OnInit {
     );
   }
 
+  imprimirTicket() {
+    this.router.navigate(['/Ticket', this.id]);
+  }
+
   cargarProductos() {
     this.formData.append('numero_remision', this.id);
     this.detremserv.ListarDetalleRemision(this.formData).subscribe(

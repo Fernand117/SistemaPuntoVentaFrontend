@@ -103,102 +103,13 @@
                             <div class="ctotal" *ngFor="let item of total">
                                 <h1 class="ltotal">IVA: {{iva}}</h1>
                                 <h1 class="ltotal">Total: ${{ item.total }}</h1>
+                                <br>
                                 <button type="submit" class="btn bl btn-success">Venta</button>
+
                             </div>
                         </form>
+                        <button class="btn btnTicket btn-success" [routerLink]="['/Ticket', id]">Imprimir ticket</button>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTree" aria-expanded="false" aria-controls="collapseTwo" (click)="cargarProductos()">
-            Ticket
-          </button>
-                </h2>
-            </div>
-            <div id="collapseTree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div id="tiket" class="tiket">
-                        <div class="datosTiket">
-                            <div class="img"><img src="../../../assets/img/logoone..jpg" alt="" class="imglogo"></div>
-                            <div class="datos">
-                                <h1 class="dt">Onésimo Ramírez Luna</h1>
-                                <h1 class="dt">R.F.C RALO750216RKA</h1>
-                                <h1 class="dt">San José, Fortín, TEL.2712118859</h1>
-                            </div>
-                            <div class="dts">
-                                <div *ngFor="let dts of dtsremision">
-                                    <h5>Remisión</h5>
-                                    A00{{dts.numero_remision}}
-                                    <h5>Fecha</h5>
-                                    {{dts.fecha_remision}}
-                                </div>
-                            </div>
-                            <div class="dtc">
-                                <div *ngFor="let dts of dtsremision">
-                                    <table class="tableC">
-                                        <thead>
-                                            <tr>
-                                                <th>Cliente</th>
-                                                <th>Dirección</th>
-                                                <th>Telefono</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td> {{dts.cliente}} {{dts.apellidop}} {{dts.apellidom}} </td>
-                                                <td> {{dts.direccion}} </td>
-                                                <td> {{dts.telefono}} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <table class=" tbTiket">
-                            <thead>
-                                <tr class="bg-primary tr">
-                                    <th scope="col">Código</th>
-                                    <th scope="col">Producto</th>
-                                    <th scope="col">Cantidad</th>
-                                    <th scope="col">Precio unitario</th>
-                                    <th scope="col">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody class="tbody tbodyTiket">
-                                <tr *ngFor="let item of datos; let i of index">
-                                    <td class="tbodyTiket"> {{item.codigo}} </td>
-                                    <td class="tbodyTiket"> {{item.producto}} </td>
-                                    <td class="tbodyTiket">{{item.cantidad}}</td>
-                                    <td class="tbodyTiket"> ${{item.precio}}</td>
-                                    <th class="thprecio">${{item.subtotal}}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="csb" *ngFor="let item of subtotal">
-                            <h1 class="ltotal">Subtotal: ${{ item.subtotal }}</h1>
-                        </div>
-                        <div class="ctotal" *ngFor="let item of total">
-                            <h1 class=" ltotal ">IVA: {{iva}}</h1>
-                            <h1 class="ltotal ">Total: ${{ item.total }}</h1>
-                        </div>
-
-                        <div class="ctotalLetras">
-                            <h1 class="ltotalletras" id="letras ">( {{letras}} )</h1>
-                        </div>
-                        <div class="leyenda ">
-                            <p>Debo y pagaré a la orden de Onésimo Ramírez Luna, en la ciudad o en cualquier otra que se requiera de pago el día ______ de __________________________ del ____________ la cantidad de ________________________________ (___________________________________________________________________________________________________________)M.N,
-                                valor de las mercancias arriba detalladas y que recibí de conformidad. Este pagaré es mercantil y está regido por la ley general de titulos y operaciones de crédito en su artículo 173 parte final u artículos correlativos,
-                                por no ser pagaré domiciliado. No pagandose a su vencimiento el importe de este pagaré causará réditos a razón del 2% mensual. El suscritor no renuncia expresamente el fuero de su domicilio y podrá ser demandado en cualquier
-                                lugar
-                            </p>
-                            <p class="fm ">____________________________________________________________________</p>
-                            <p class="fm ">FIRMA</p>
-                        </div>
-                    </div>
-                    <button class="btn bl btn-info " (click)="imprimir( 'tiket') " value="imprimir div ">Imprimir</button>
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@ import { ComprasAdminComponent } from './pages/compras/compras-admin/compras-adm
 import { DetallesComprasComponent } from './pages/detalles-compras/detalles-compras.component';
 import { ListaDetallesComprasComponent } from './pages/lista-detalles-compras/lista-detalles-compras.component';
 import { ProductosFiltroComponent } from './pages/productos-filtro/productos-filtro.component';
+import { TicketComponent } from './pages/ticket/ticket.component';
 
 const APP_ROUTES: Routes = [
   {path: 'home', component: Component},
@@ -35,6 +36,7 @@ const APP_ROUTES: Routes = [
   {path: 'Almacen', component: AlmacenComponent},
   {path: 'Remisiones', component: RemisionesComponent},
   {path: 'DetallesRemisiones/:id', component: DetallesRemisionComponent},
+  {path: 'Ticket/:id', component: TicketComponent},
   {path: 'Productos/Añadir/:id', component: ProductsAddComponent},
   {path: 'Productos/Filtro/:id', component: ProductosFiltroComponent},
   {path: 'Salidas', component: SalidasComponent},

@@ -19,12 +19,16 @@ export class CategoriasComponent implements OnInit {
     private categoriasservice: CategoriasServiceService,
     private router: Router) { }
 
+    obtenerCategorias() {
+      this.categoriasservice.ListarCategorias().subscribe(
+        res => {
+          this.datos = res['categorias'];
+        }
+      );
+    }
+
   ngOnInit() {
-    this.categoriasservice.ListarCategorias().subscribe(
-      res => {
-        this.datos = res['categorias'];
-      }
-    );
+    this.obtenerCategorias();
   }
 
   cargar_imagen(event) {
@@ -49,7 +53,7 @@ export class CategoriasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        this.router.navigateByUrl('/Inicio');
+        this.obtenerCategorias();
       }
     );
   }

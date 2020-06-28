@@ -28,12 +28,16 @@ export class RemisionesComponent implements OnInit {
     private clientservice: ClientesServicesService
   ) { }
 
-  ngOnInit() {
+  obtenerRemisiones() {
     this.remservi.ListarRemisiones().subscribe(
       res => {
         this.datos = res['Remisiones'];
       }
     );
+  }
+
+  ngOnInit() {
+    this.obtenerRemisiones();
     this.authservice.leer_token().subscribe(
       res => {
         this.tokenUser = res['Usuario'];
@@ -50,9 +54,6 @@ export class RemisionesComponent implements OnInit {
       text: 'Registrando nueva remisión'
     });
     Swal.showLoading();
-    this.formData.append('fecha_remision', this.remisiones.fecharemision);
-    this.formData.append('estado_remision', this.remisiones.estadoremision);
-    this.formData.append('descripcion', this.remisiones.descripcion);
     this.formData.append('idusuario', this.nmuser);
     this.remservi.RegistrarRemisiones(this.formData).subscribe(
       res => {
@@ -62,7 +63,7 @@ export class RemisionesComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        this.router.navigateByUrl('/Market');
+        this.obtenerRemisiones();
       }
     );
   }

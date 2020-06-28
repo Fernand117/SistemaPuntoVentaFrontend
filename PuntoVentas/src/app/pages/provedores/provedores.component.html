@@ -28,10 +28,10 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr *ngFor="let item of provedores; let i = index" [routerLink]="['/Productos/Filtro', item.nombre]">
-                    <td>{{item.nombre}}</td>
-                    <td> {{item.direccion}} </td>
-                    <td> {{item.telefono}} </td>
+                <tr *ngFor="let item of provedores; let i = index">
+                    <td [routerLink]="['/Productos/Filtro', item.nombre]">{{item.nombre}}</td>
+                    <td [routerLink]="['/Productos/Filtro', item.nombre]"> {{item.direccion}} </td>
+                    <td [routerLink]="['/Productos/Filtro', item.nombre]"> {{item.telefono}} </td>
                     <td>
                         <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
                     </td>

@@ -6,14 +6,6 @@
         <hr>
         <form (ngSubmit)="guardar(form)" #form="ngForm">
             <h4>Crear nueva remisión</h4>
-            <br>
-            <h6>Fecha de remisión</h6>
-            <input type="date" name="fecha" id="fecha" class="form-control" [(ngModel)]="remisiones.fecharemision">
-            <h6>Estado de la remisión</h6>
-            <input type="text" name="estado" id="estado" class="form-control" placeholder="Estado" [(ngModel)]="remisiones.estadoremision">
-            <h6>Ingrese una descripción de la remisión</h6>
-            <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripción" [(ngModel)]="remisiones.descripcion">
-            <br>
             <button type="submit" class="btn btn-success">Registrar</button>
         </form>
     </div>

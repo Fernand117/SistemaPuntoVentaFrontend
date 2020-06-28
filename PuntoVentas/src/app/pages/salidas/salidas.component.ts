@@ -24,16 +24,19 @@ export class SalidasComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.prodservice.ListarProductos().subscribe(
-      res => {
-        this.productoslista = res['Productos'];
-      }
-    );
-
+  obtenerSalidas() {
     this.salservice.ListarSalidas().subscribe(
       res => {
         this.datossalida = res['Salidas'];
+      }
+    );
+  }
+
+  ngOnInit() {
+    this.obtenerSalidas();
+    this.prodservice.ListarProductos().subscribe(
+      res => {
+        this.productoslista = res['Productos'];
       }
     );
   }
@@ -58,7 +61,7 @@ export class SalidasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        this.router.navigateByUrl('/Market');
+        this.obtenerSalidas();
       }
     );
   }

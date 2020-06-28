@@ -19,13 +19,16 @@ export class RegistrarComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  obtenerUsuarios() {
     this.authservice.listausuarios().subscribe(
       res => {
-        console.log(res['Usuarios']);
         this.usuarios = res['Usuarios'];
       }
     );
+  }
+
+  ngOnInit() {
+    this.obtenerUsuarios();
   }
 
   registrar(form) {
@@ -44,7 +47,7 @@ export class RegistrarComponent implements OnInit {
           title: 'Alerta',
           text: 'Bienvenido (a): ' + res['user']['name']
         });
-        this.router.navigateByUrl('/Market');
+        this.obtenerUsuarios();
       }
     );
   }

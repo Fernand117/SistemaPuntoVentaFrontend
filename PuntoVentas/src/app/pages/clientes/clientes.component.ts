@@ -20,12 +20,16 @@ export class ClientesComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  obtenerClientes() {
     this.clientservice.ListarClientes().subscribe(
       res => {
         this.clientes = res['Clientes'];
       }
     );
+  }
+
+  ngOnInit() {
+    this.obtenerClientes();
   }
 
   RegistrarCliente(form) {
@@ -50,7 +54,7 @@ export class ClientesComponent implements OnInit {
         });
       }
     );
-    this.router.navigateByUrl('/Inicio');
+    this.obtenerClientes();
   }
 
   eliminar(cliente: ClientesModule, i: number) {

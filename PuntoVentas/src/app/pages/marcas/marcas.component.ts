@@ -20,12 +20,16 @@ export class MarcasComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  obtenerMarca() {
     this.marcser.ListarMarcas().subscribe(
       res => {
         this.datos = res['Marcas'];
       }
     );
+  }
+
+  ngOnInit() {
+    this.obtenerMarca();
   }
 
   cargar_imagen(event) {
@@ -53,7 +57,7 @@ export class MarcasComponent implements OnInit {
         });
       }
     );
-    this.router.navigateByUrl('/Inicio');
+    this.obtenerMarca();
   }
 
   eliminar(marcas: MarcasModule, i: number) {

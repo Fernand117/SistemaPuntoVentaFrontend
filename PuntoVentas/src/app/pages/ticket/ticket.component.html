@@ -1,0 +1,60 @@
+<div class="ticket">
+    <img src="../../../assets/img/logoone..jpg" alt="Logotipo">
+    <p class="centrado">TICKET DE VENTA
+        <br>Onésimo Ramírez Luna
+        <br>R.F.C RALO750216RKA
+        <br>San José, Fortín, TEL.2712848107</p>
+    <div class="centrado" *ngFor="let dts of dtsremision">
+        <h1>Remisión: A00{{dts.numero_remision}}</h1>
+        <h1>Fecha: {{dts.fecha_remision}}</h1>
+    </div>
+    <div class="centrado" *ngFor="let dts of dtsremision">
+        <h1>Cliente: {{dts.cliente}} {{dts.apellidop}} {{dts.apellidom}}</h1>
+        <h1>Dirección: {{dts.direccion}}</h1>
+
+        <h1>Telefono: {{dts.telefono}}</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th class="cantidad">CANT</th>
+                <th class="producto">PRODUCTO</th>
+                <th class="precio">P.V</th>
+                <th class="precio total">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of datos; let i of index">
+                <td class="cantidad">{{item.cantidad}}</td>
+                <td class="producto">{{item.producto}}</td>
+                <td class="precio">{{item.precio}}</td>
+                <td class="precio">{{item.subtotal}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div class="centrado itemTotal" *ngFor="let item of subtotal">
+        <h1 class="ltotal">Subtotal: ${{ item.subtotal }}</h1>
+    </div>
+    <div class="centrado itemTotal" *ngFor="let item of total">
+        <h1 class=" ltotal ">IVA: {{iva}}</h1>
+    </div>
+    <div class="centrado itemTotal" *ngFor="let item of total">
+        <h1 class="ltotal ">Total: ${{ item.total }}</h1>
+    </div>
+
+    <div class="centrado">
+        <h1 class="ltotalletras" id="letras ">( {{letras}} )</h1>
+    </div>
+
+    <p class="centrado">Debo y pagaré a la orden de Onésimo Ramírez Luna, en la ciudad o en cualquier otra que se requiera de pago el día ______ de __________________________ del ____________ la cantidad de {{letras}} M.N, valor de las mercancias arriba detalladas y que
+        recibí de conformidad. Este pagaré es mercantil y está regido por la ley general de titulos y operaciones de crédito en su artículo 173 parte final u artículos correlativos, por no ser pagaré domiciliado. No pagandose a su vencimiento el importe
+        de este pagaré causará réditos a razón del 2% mensual. El suscritor no renuncia expresamente el fuero de su domicilio y podrá ser demandado en cualquier lugar
+    </p>
+    <br>
+    <hr>
+    <p class="centrado">FIRMA</p>
+    <p class="centrado">¡GRACIAS POR SU COMPRA!</p>
+</div>
+<button class="oculto-impresion" (click)="imprimir()">Imprimir</button>
+<button class="oculto-impresion" [routerLink]="['/Market']">Regresar</button>
