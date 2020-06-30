@@ -7,8 +7,8 @@ import { AuthModule } from '../models/auth/auth.module';
 })
 export class AuthService {
 
-  //private url = "http://apiventas.com/api";
-  private url = "http://ventasapi.win:90/api";
+  private url = "http://apiventas.com/api";
+  //private url = "http://ventasapi.win:90/api";
   //private url = "http://127.0.0.1:8000/api";
 
   token: string = null;
