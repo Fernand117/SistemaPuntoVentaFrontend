@@ -1,9 +1,9 @@
 <div class="ticket">
-    <img src="../../../assets/img/logoone..jpg" alt="Logotipo">
+    <img src="../../../assets/img/LOGO2.jpg" alt="Logotipo">
     <p class="centrado">TICKET DE VENTA
         <br>Onésimo Ramírez Luna
         <br>R.F.C RALO750216RKA
-        <br>San José, Fortín, TEL.2712848107</p>
+        <br>San José, Fortín, TEL.2712118859</p>
     <div class="centrado" *ngFor="let dts of dtsremision">
         <h1>Remisión: A00{{dts.numero_remision}}</h1>
         <h1>Fecha: {{dts.fecha_remision}}</h1>
@@ -11,7 +11,6 @@
     <div class="centrado" *ngFor="let dts of dtsremision">
         <h1>Cliente: {{dts.cliente}} {{dts.apellidop}} {{dts.apellidom}}</h1>
         <h1>Dirección: {{dts.direccion}}</h1>
-
         <h1>Telefono: {{dts.telefono}}</h1>
     </div>
     <table>

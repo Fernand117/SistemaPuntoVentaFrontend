@@ -52,3 +52,7 @@
 .container {
     margin-top: 2%;
 }
+
+.btn-reg {
+    float: right;
+}

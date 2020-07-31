@@ -28,6 +28,7 @@ import { DetallesComprasComponent } from './pages/detalles-compras/detalles-comp
 import { ListaDetallesComprasComponent } from './pages/lista-detalles-compras/lista-detalles-compras.component';
 import { ProductosFiltroComponent } from './pages/productos-filtro/productos-filtro.component';
 import { TicketComponent } from './pages/ticket/ticket.component';
+import { ClientesEditarComponent } from './pages/clientes/clientes-editar/clientes-editar.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TicketComponent } from './pages/ticket/ticket.component';
     DetallesComprasComponent,
     ListaDetallesComprasComponent,
     ProductosFiltroComponent,
-    TicketComponent
+    TicketComponent,
+    ClientesEditarComponent
   ],
   imports: [
     BrowserModule,

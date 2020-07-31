@@ -1,6 +1,7 @@
 * {
-    font-size: 8.5px;
-    font-family: 'Lucida Sans Unicode';
+    font-size: 9px;
+    /*font-family: 'Lucida Sans Unicode';*/
+    font-family: 'Franklin Gothic Medium';
 }
 
 td,
@@ -20,11 +21,11 @@ th.producto {
 th.producto,
 th.cantidad,
 th.precio {
-    font-size: 8.5px;
+    font-size: 9px;
 }
 
 th.total {
-    font-size: 8.5px;
+    font-size: 9px;
 }
 
 th.total,

@@ -7,9 +7,12 @@ import { ProductosModule } from '../models/productos/productos.module';
 })
 export class ProductosServiceService {
 
-  private url = "http://apiventas.com/api";
+  //private url = "http://apiventas.com/api";
   //private url = "http://127.0.0.1:8000/api";
-  //private url = "http://ventasapi.win:90/api";
+  private url = "http://ventasapi.win:90/api";
+  /*DIRECCIÓN URL DE HEROKU*/
+  //private url = "https://ventasapi.herokuapp.com/api";
+  //private url = "https://sistemapuntoventaapi.000webhostapp.com/api";
 
   constructor(private http: HttpClient) { }
 

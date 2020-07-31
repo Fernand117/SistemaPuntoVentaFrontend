@@ -4,10 +4,6 @@
     <div class="container">
         <h1>Lista de remisiones</h1>
         <hr>
-        <form (ngSubmit)="guardar(form)" #form="ngForm">
-            <h4>Crear nueva remisión</h4>
-            <button type="submit" class="btn btn-success">Registrar</button>
-        </form>
     </div>
     <div class="container ct">
         <table class="table">
@@ -34,5 +30,10 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="container cont-rem">
+        <form (ngSubmit)="guardar(form)" #form="ngForm">
+            <button type="submit" class="btn btn-remision btn-success">Nueva remisión</button>
+        </form>
     </div>
 </div>

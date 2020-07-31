@@ -71,3 +71,7 @@ h1 {
 .lbprecio {
     text-align: right;
 }
+
+.bg-primary {
+    color: white;
+}

@@ -54,7 +54,10 @@
 }
 
 .ct {
-    margin-bottom: 5%;
+    /*margin-bottom: 5%;*/
+    width: 90%;
+    height: 380px;
+    overflow: scroll;
 }
 
 .btn-success {
@@ -63,4 +66,16 @@
 
 .bl {
     margin-left: 1%;
+}
+
+.bg-primary {
+    color: white;
+}
+
+.btn-comp {
+    float: right;
+}
+
+.cont-btn-comp {
+    width: 90%;
 }

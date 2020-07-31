@@ -13,7 +13,9 @@ import { ProductosServiceService } from '../../services/productos-service.servic
   templateUrl: './detalles-remision.component.html',
   styleUrls: ['./detalles-remision.component.css']
 })
+
 export class DetallesRemisionComponent implements OnInit {
+
   totalForm: any;
   letras: any;
   datos: any;
@@ -23,6 +25,8 @@ export class DetallesRemisionComponent implements OnInit {
   dtsremision: any;
   clientes: any;
   productos: any;
+  idrem: number;
+
   formData = new FormData();
   remisiones: RemisionesModule = new RemisionesModule();
   detalles: DetallesRemisionModule = new DetallesRemisionModule();
@@ -34,18 +38,23 @@ export class DetallesRemisionComponent implements OnInit {
               private detallesservice: DetallesRemisionService,
               private clientservice: ClientesServicesService,
               private prodservice: ProductosServiceService) { }
+
   id = this.route.snapshot.paramMap.get('id');
+
   ngOnInit() {
+
     this.clientservice.ListarClientes().subscribe(
       res => {
         this.clientes = res['Clientes'];
       }
     );
+
     this.prodservice.ListarProductos().subscribe(
       res => {
         this.productos = res['Productos'];
       }
     );
+
   }
 
   imprimirTicket() {
@@ -54,6 +63,7 @@ export class DetallesRemisionComponent implements OnInit {
 
   cargarProductos() {
     this.formData.append('numero_remision', this.id);
+
     this.detremserv.ListarDetalleRemision(this.formData).subscribe(
       res => {
         this.datos = res['Remisiones'];
@@ -64,6 +74,7 @@ export class DetallesRemisionComponent implements OnInit {
         this.letras = res['LetrasTotal'];
       }
     );
+
   }
 
   imprimir(nombrediv) {
