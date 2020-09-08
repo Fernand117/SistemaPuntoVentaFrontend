@@ -43,7 +43,7 @@
 .caja {
     position: fixed;
     width: 82%;
-    height: 595px;
+    height: 100%;
     overflow: scroll;
     margin-top: 4%;
     margin-left: 18.3%;
@@ -51,8 +51,14 @@
 }
 
 .container {
-    margin-top: 3%;
+    margin-top: 5%;
     width: 90%;
+}
+
+.container-tab {
+    margin-top: 5%;
+    width: 90%;
+    height: 100%;
 }
 
 .bg-primary {

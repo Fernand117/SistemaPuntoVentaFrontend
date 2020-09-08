@@ -3,6 +3,7 @@ import { CategoriasServiceService } from '../../services/categorias-service.serv
 import { CategoriasModule } from 'src/app/models/categorias/categorias.module';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-categorias',
@@ -38,7 +39,7 @@ export class CategoriasComponent implements OnInit {
     }
   }
 
-  guardar(form) {
+  guardar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -53,6 +54,7 @@ export class CategoriasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.obtenerCategorias();
       }
     );

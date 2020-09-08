@@ -3,6 +3,7 @@ import { ClientesModule } from '../../models/clientes/clientes.module';
 import { ClientesServicesService } from '../../services/clientes-services.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-clientes',
@@ -32,7 +33,7 @@ export class ClientesComponent implements OnInit {
     this.obtenerClientes();
   }
 
-  RegistrarCliente(form) {
+  RegistrarCliente(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Advertencia',
@@ -52,9 +53,10 @@ export class ClientesComponent implements OnInit {
           title: 'Advertencia',
           text: res['Mensaje']
         });
+        form.resetForm();
+        this.obtenerClientes();
       }
     );
-    this.obtenerClientes();
   }
 
   eliminar(cliente: ClientesModule, i: number) {

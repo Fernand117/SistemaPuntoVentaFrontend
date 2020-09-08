@@ -6,6 +6,7 @@ import {ClientesServicesService} from '../../services/clientes-services.service'
 import {DetallesRemisionModule} from '../../models/detalles-remision/detalles-remision.module';
 import Swal from 'sweetalert2';
 import {DetallesRemisionService} from '../../services/detalles-remision.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-products-add',
@@ -52,7 +53,7 @@ export class ProductsAddComponent implements OnInit {
     );
   }
 
-  registrar(form) {
+  registrar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Espere por favor',
@@ -72,6 +73,7 @@ export class ProductsAddComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.router.navigateByUrl('/Market');
       }
     );

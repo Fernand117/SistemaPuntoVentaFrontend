@@ -7,6 +7,7 @@ import { ProvedoresServicesService } from '../../services/provedores-services.se
 import { ProductosModule } from '../../models/productos/productos.module';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-productos',
@@ -68,7 +69,7 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  guardar(form) {
+  guardar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -91,6 +92,7 @@ export class ProductosComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.obtenerProductos();
       }
     );

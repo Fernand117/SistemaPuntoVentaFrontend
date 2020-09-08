@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './lista-detalles-compras.component.html',
   styleUrls: ['./lista-detalles-compras.component.css']
 })
+
 export class ListaDetallesComprasComponent implements OnInit {
 
   lista: any;
@@ -29,5 +30,4 @@ export class ListaDetallesComprasComponent implements OnInit {
       }
     );
   }
-
 }

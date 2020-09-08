@@ -6,15 +6,15 @@
         <hr>
         <form (ngSubmit)="RegistrarCliente(form)" #form="ngForm">
             <h5>Nombre</h5>
-            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="cliente.nombre" placeholder="Carlos">
+            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="cliente.nombre" placeholder="Industrias Acrol">
             <h5>Ciudad</h5>
-            <input type="text" name="apellidop" id="apellidop" class="form-control" [(ngModel)]="cliente.apellidop" placeholder="Jímenes">
+            <input type="text" name="apellidop" id="apellidop" class="form-control" [(ngModel)]="cliente.apellidop" placeholder="Cd. Victoria">
             <h5>Estado</h5>
-            <input type="text" name="apellidom" id="apellidom" class="form-control" [(ngModel)]="cliente.apellidom" placeholder="García">
+            <input type="text" name="apellidom" id="apellidom" class="form-control" [(ngModel)]="cliente.apellidom" placeholder="Tamaulipas">
             <h5>Dirección</h5>
-            <input type="text" name="direccion" id="direccion" class="form-control" [(ngModel)]="cliente.direccion" placeholder="Av #5">
+            <input type="text" name="direccion" id="direccion" class="form-control" [(ngModel)]="cliente.direccion" placeholder="Av #5 calle 2 centro.">
             <h5>Telefono</h5>
-            <input type="text" name="telefono" id="telefono" class="form-control" [(ngModel)]="cliente.telefono" placeholder="271-187-0738">
+            <input type="text" name="telefono" id="telefono" class="form-control" [(ngModel)]="cliente.telefono" placeholder="2711870738">
             <br>
             <button mat-button class="btn btn-success" type="submit">Registrar cliente</button>
         </form>
@@ -30,11 +30,12 @@
                     <th scope="col">Direccion</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Opciones</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody class="tbody">
                 <tr *ngFor="let item of clientes; let i of index">
-                    <th scope="row">{{i.codigo}}</th>
+                    <th scope="row">{{i.id}}</th>
                     <td>{{item.nombre}}</td>
                     <td>{{item.apellidop}}</td>
                     <td>{{item.apellidom}}</td>
@@ -42,6 +43,9 @@
                     <td>{{item.telefono}}</td>
                     <td>
                         <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" [routerLink]="['/Clientes/Editar', item.id]">Editar</button>
                     </td>
                 </tr>
             </tbody>

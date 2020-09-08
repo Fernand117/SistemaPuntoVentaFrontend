@@ -2,21 +2,21 @@
 <app-menuadmin></app-menuadmin>
 <div class="caja">
     <div class="container">
-        <h1>Registrar nuevo provedor</h1>
+        <h1>Registrar nuevo proveedor</h1>
         <hr>
         <form (ngSubmit)="RegistrarProvedor(form)" #form="ngForm">
             <h4>Nombre del provedor</h4>
-            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="provedor.nombre">
+            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="provedor.nombre" placeholder="Transportes Luis">
             <h4>Dirección</h4>
-            <input type="text" name="direccion" id="direccion" class="form-control" [(ngModel)]="provedor.direccion">
+            <input type="text" name="direccion" id="direccion" class="form-control" [(ngModel)]="provedor.direccion" placeholder="Av 5 de mayo Puebla">
             <h4>Telefono</h4>
-            <input type="number" name="telefono" id="telefono" class="form-control" [(ngModel)]="provedor.telefono">
+            <input type="number" name="telefono" id="telefono" class="form-control" [(ngModel)]="provedor.telefono" placeholder="7895847565">
             <br>
-            <button type="submit" class="btn btn-success form-control">Registrar provedor</button>
+            <button type="submit" class="btn btn-success form-control">Registrar proveedor</button>
         </form>
     </div>
-    <div class="container">
-        <h1>Tabla de provedores</h1>
+    <div class="container-tab container">
+        <h1>Tabla de proveedores</h1>
         <hr>
         <table class="table">
             <thead>

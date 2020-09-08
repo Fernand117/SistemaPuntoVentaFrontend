@@ -15,25 +15,25 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #ffffff;
+    background: rgb(45, 46, 51);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: #ffffff;
+    background: rgb(45, 46, 51);
 }
 
 ::-webkit-scrollbar-track {
-    background: #ffffff;
-    border: 0px none #ffffff;
+    background: rgb(45, 46, 51);
+    border: 0px none rgb(45, 46, 51);
     border-radius: 50px;
 }
 
 ::-webkit-scrollbar-track:hover {
-    background: #ffffff;
+    background: rgb(45, 46, 51);
 }
 
 ::-webkit-scrollbar-track:active {
-    background: #ffffff;
+    background: rgb(45, 46, 51);
 }
 
 ::-webkit-scrollbar-corner {
@@ -42,7 +42,7 @@
 
 .menu {
     width: 250px;
-    height: 650px;
+    height: 100%;
     overflow: scroll;
     position: fixed;
 }

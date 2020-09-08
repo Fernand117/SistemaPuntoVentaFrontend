@@ -3,6 +3,7 @@ import { ProvedoresModule } from '../../models/provedores/provedores.module';
 import { ProvedoresServicesService } from '../../services/provedores-services.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-provedores',
@@ -32,7 +33,7 @@ export class ProvedoresComponent implements OnInit {
     this.obtenerProveedor();
   }
 
-  RegistrarProvedor(form) {
+  RegistrarProvedor(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -50,9 +51,10 @@ export class ProvedoresComponent implements OnInit {
           title: 'Advertencia',
           text: res['Mensaje']
         });
+        form.resetForm();
+        this.obtenerProveedor();
       }
     );
-    this.obtenerProveedor();
   }
 
   eliminar(provedores: ProvedoresModule, i: number) {

@@ -8,6 +8,7 @@ import { CategoriasServiceService } from '../../../services/categorias-service.s
 import { SubCategoriasServiceService } from '../../../services/sub-categorias-service.service';
 import { ProvedoresServicesService } from '../../../services/provedores-services.service';
 import { formatNumber } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-products-edit',
@@ -74,7 +75,7 @@ export class ProductsEditComponent implements OnInit {
     }
   }
 
-  Actualizar(form) {
+  Actualizar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -96,6 +97,7 @@ export class ProductsEditComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.router.navigateByUrl('/Productos');
       }
     );

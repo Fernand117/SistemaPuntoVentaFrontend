@@ -3,6 +3,7 @@ import { AuthModule } from '../../models/auth/auth.module';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registrar',
@@ -31,7 +32,7 @@ export class RegistrarComponent implements OnInit {
     this.obtenerUsuarios();
   }
 
-  registrar(form) {
+  registrar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -40,13 +41,8 @@ export class RegistrarComponent implements OnInit {
     Swal.showLoading();
     this.authservice.registrar(this.auth).subscribe(
       res => {
-        this.authservice.guardar_token(res['user']['token']);
         Swal.close();
-        Swal.fire({
-          icon: 'info',
-          title: 'Alerta',
-          text: 'Bienvenido (a): ' + res['user']['name']
-        });
+        form.resetForm();
         this.obtenerUsuarios();
       }
     );

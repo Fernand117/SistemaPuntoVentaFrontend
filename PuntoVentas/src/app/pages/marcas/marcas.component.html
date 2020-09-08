@@ -9,7 +9,7 @@
                 <form (ngSubmit)="RegistrarMarca(form)" #form="ngForm">
                     <br>
                     <h5>Nombre de la marca</h5>
-                    <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="marca.nombre">
+                    <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="marca.nombre" placeholder="Toshiba">
                     <br>
                     <h5>Imagen</h5>
                     <input type="file" name="imagen" id="imagen" class="form-control-file" accept="image/jpeg" (change)="cargar_imagen($event)" [(ngModel)]="marca.imagen">
@@ -18,18 +18,20 @@
                 </form>
             </div>
         </div>
-        <div class="card mb-3" *ngFor="let item of datos; let i = index">
-            <div class="row no-gutters">
-                <div class="col-md-2" [routerLink]="['/Productos/Filtro', item.nombre]">
-                    <img src="{{item.imagen}}" class="card-img" alt="...">
-                </div>
-                <div class="col-md-7" [routerLink]="['/Productos/Filtro', item.nombre]">
-                    <div class="card-body">
-                        <h5 class="card-title">Marca: {{item.nombre}}</h5>
+        <div class="cont-card">
+            <div class="card mb-3" *ngFor="let item of datos; let i = index">
+                <div class="row no-gutters">
+                    <div class="col-md-2" [routerLink]="['/Productos/Filtro', item.nombre]">
+                        <img src="{{item.imagen}}" class="card-img" alt="...">
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                    <div class="col-md-7" [routerLink]="['/Productos/Filtro', item.nombre]">
+                        <div class="card-body">
+                            <h5 class="card-title">Marca: {{item.nombre}}</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
+                    </div>
                 </div>
             </div>
         </div>

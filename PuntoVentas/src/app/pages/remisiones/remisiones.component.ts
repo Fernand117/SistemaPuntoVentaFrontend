@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RemisionesServicesService } from '../../services/remisiones-services.service';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 import { RemisionesModule } from '../../models/remisiones/remisiones.module';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ClientesServicesService } from '../../services/clientes-services.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -42,12 +42,11 @@ export class RemisionesComponent implements OnInit {
       res => {
         this.tokenUser = res['Usuario'];
         this.nmuser = res['Usuario']['0']['id'];
-        console.log(this.nmuser = res['Usuario']['0']['id']);
       }
     );
   }
 
-  guardar(form) {
+  guardar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Espere por favor',
@@ -63,6 +62,7 @@ export class RemisionesComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.obtenerRemisiones();
       }
     );

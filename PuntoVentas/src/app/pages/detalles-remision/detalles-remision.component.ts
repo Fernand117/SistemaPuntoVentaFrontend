@@ -7,6 +7,7 @@ import { RemisionesModule } from '../../models/remisiones/remisiones.module';
 import { RemisionesServicesService } from '../../services/remisiones-services.service';
 import { ClientesServicesService } from '../../services/clientes-services.service';
 import { ProductosServiceService } from '../../services/productos-service.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-detalles-remision',
@@ -85,7 +86,7 @@ export class DetallesRemisionComponent implements OnInit {
      document.body.innerHTML = contenidoOriginal;
   }
 
-  venta(form) {
+  venta(form: NgForm) {
     this.totalForm = this.total['0']['total'];
     console.log(this.totalForm);
     Swal.fire({
@@ -104,6 +105,7 @@ export class DetallesRemisionComponent implements OnInit {
           title: 'Adevertencia',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.router.navigateByUrl('/Remisiones');
       }
     );
@@ -135,7 +137,7 @@ export class DetallesRemisionComponent implements OnInit {
     });
   }
 
-  registrar(form) {
+  registrar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Espere por favor',
@@ -155,6 +157,7 @@ export class DetallesRemisionComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
       }
     );
   }

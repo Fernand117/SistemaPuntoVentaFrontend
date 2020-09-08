@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { InicioComponent } from '../inicio/inicio.component';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(form) {
+  login(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -47,6 +48,7 @@ export class LoginComponent implements OnInit {
             title: 'Advertencia',
             text: 'Usuario o contraseña incorrectos'
           });
+          form.resetForm();
         }
       }
     );

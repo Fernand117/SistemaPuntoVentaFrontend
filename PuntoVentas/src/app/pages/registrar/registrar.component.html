@@ -5,17 +5,17 @@
         <h1>Registrar nuevo usuario</h1>
         <form (ngSubmit)="registrar(form)" #form="ngForm">
             <h4>Nombre</h4>
-            <input type="text" name="name" id="name" class="form-control" [(ngModel)]="auth.name">
+            <input type="text" name="name" id="name" class="form-control" [(ngModel)]="auth.name" placeholder="Juan Carlos">
             <h4>Apellido paterno</h4>
-            <input type="text" name="paterno" id="paterno" class="form-control" [(ngModel)]="auth.paterno">
+            <input type="text" name="paterno" id="paterno" class="form-control" [(ngModel)]="auth.paterno" placeholder="García">
             <h4>Apellido materno</h4>
-            <input type="text" name="materno" id="materno" class="form-control" [(ngModel)]="auth.materno">
+            <input type="text" name="materno" id="materno" class="form-control" [(ngModel)]="auth.materno" placeholder="Robles">
             <h4>Correo</h4>
-            <input type="email" name="email" id="email" class="form-control" [(ngModel)]="auth.email">
+            <input type="email" name="email" id="email" class="form-control" [(ngModel)]="auth.email" placeholder="email@ejemplo.com">
             <h4>Contraseña</h4>
-            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="auth.password">
+            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="auth.password" placeholder="Contraseña">
             <h4>Confirmar Contraseña</h4>
-            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" [(ngModel)]="auth.password_confirmation">
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" [(ngModel)]="auth.password_confirmation" placeholder="Repetir contraseña">
             <br>
             <button type="submit" class="btn btn-success form-control">Registrar usuario</button>
         </form>
@@ -31,6 +31,7 @@
                     <th scope="col">Apellido paterno</th>
                     <th scope="col">Apellido materno</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody class="tbody">
@@ -40,6 +41,9 @@
                     <td>{{item.apellidop}}</td>
                     <td>{{item.apellidom}}</td>
                     <td>{{item.email}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -43,7 +43,7 @@
 .caja {
     position: fixed;
     width: 82%;
-    height: 595px;
+    height: 100%;
     overflow: scroll;
     margin-top: 4%;
     margin-left: 18.3%;
@@ -62,7 +62,7 @@
 .ct {
     margin-bottom: 2%;
     overflow: scroll;
-    height: 350px;
+    height: 100%;
 }
 
 .btn {
@@ -76,4 +76,5 @@
 
 .cont-rem {
     width: 90%;
+    height: 100px;
 }

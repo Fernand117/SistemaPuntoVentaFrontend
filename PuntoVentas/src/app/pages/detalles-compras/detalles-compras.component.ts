@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlmacenModule } from '../../models/almacen/almacen.module';
 import { ProductosModule } from '../../models/productos/productos.module';
 import Swal from 'sweetalert2';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-detalles-compras',
@@ -35,7 +36,7 @@ export class DetallesComprasComponent implements OnInit {
     );
   }
 
-  guardar(form) {
+  guardar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Advertencia',
@@ -54,7 +55,7 @@ export class DetallesComprasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
-        //this.router.navigateByUrl('/Compras');
+        form.resetForm();
       }
     );
   }

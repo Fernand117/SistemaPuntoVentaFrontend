@@ -3,43 +3,48 @@
 <div class="caja">
     <div class="container">
         <div class="cont">
-            <h2>Lista de subcategorias</h2>
+            <h2>Lista de subcategorías</h2>
             <hr>
             <form (ngSubmit)="guardar(form)" #form="ngForm">
                 <br>
-                <h5>Nombre de la subcategoria</h5>
-                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="subcategoria.nombre">
+                <h5>Nombre de la subcategoría</h5>
+                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="subcategoria.nombre" placeholder="Celulares">
                 <br>
                 <h5>Categoría</h5>
                 <select class="form-control" [(ngModel)]="subcategoria.idcategoria" name="idcategoria" id="idcategoria">
-                  <option value="0" selected>Selecciona una Categoria</option>
-                  <option value="" *ngFor="let item of categorias; let i = index" value="{{item.id}}">  {{item.nombre}}</option>
+                    <option value="0" selected>Selecciona una Categoría</option>
+		            <option value="" *ngFor="let item of categorias; let i = index" value="{{item.id}}">{{item.nombre}}</option>
                 </select>
                 <br>
                 <h5>Imagen</h5>
                 <input type="file" name="imagen" id="imagen" class="form-control-file" accept="image/jpeg" (change)="cargar_imagen($event)" [(ngModel)]="subcategoria.imagen">
                 <br>
-                <button type="submit" class="btn btn-success">Añadir nueva subcategoria</button>
+                <button type="submit" class="btn btn-success">Añadir nueva subcategoría</button>
             </form>
         </div>
-        <div class="card mb-3" *ngFor="let item of datos; let i = index" [routerLink]="['/Productos/Filtro', item.subcategoria]">
-            <div class="row no-gutters">
-                <div class="col-md-1">
-                    {{i + 1}}
-                </div>
-                <div class="col-md-2">
-                    <img src="{{item.imagen}}" class="card-img" alt="...">
-                </div>
-                <div class="col-md-5">
-                    <div class="card-body">
-                        <h5 class="card-title">Subcategoria: {{item.subcategoria}}</h5>
-                        <p class="card-text">Categoria: {{item.categoria}}</p>
+
+        <div class="cont-card">
+            <div class="card mb-3" *ngFor="let item of datos; let i = index" [routerLink]="['/Productos/Filtro', item.subcategoria]">
+                <div class="row no-gutters">
+                    <div class="col-md-1">
+                        <!--{{i + 1}}-->
+                    </div>
+                    <div class="col-md-2">
+                        <img src="{{item.imagen}}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body">
+                            <h5 class="card-title">Subcategoría: {{item.subcategoria}}</h5>
+                            <p class="card-text">Categoría: {{item.categoria}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
-                </div>
             </div>
+
         </div>
+
     </div>
 </div>

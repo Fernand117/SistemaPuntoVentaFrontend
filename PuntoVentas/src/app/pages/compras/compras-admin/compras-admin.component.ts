@@ -4,6 +4,7 @@ import { ProvedoresServicesService } from '../../../services/provedores-services
 import { OrdenesComprasServiceService } from '../../../services/ordenes-compras-service.service';
 import { ComprasModule } from '../../../models/compras/compras.module';
 import Swal from 'sweetalert2';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-compras-admin',
@@ -32,7 +33,7 @@ export class ComprasAdminComponent implements OnInit {
     );
   }
 
-  RegisrarCompras(form) {
+  RegisrarCompras(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -52,6 +53,7 @@ export class ComprasAdminComponent implements OnInit {
         });
       }
     );
+    form.resetForm();
     this.router.navigateByUrl('/Compras');
   }
 

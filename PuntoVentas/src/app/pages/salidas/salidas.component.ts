@@ -4,7 +4,7 @@ import { SalidasModule } from '../../models/salidas/salidas.module';
 import { SalidasServiceService } from '../../services/salidas-service.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-salidas',
@@ -41,7 +41,7 @@ export class SalidasComponent implements OnInit {
     );
   }
 
-  RegistrarSalida(form) {
+  RegistrarSalida(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -61,6 +61,7 @@ export class SalidasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.obtenerSalidas();
       }
     );

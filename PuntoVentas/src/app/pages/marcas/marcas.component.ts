@@ -3,6 +3,7 @@ import { MarcasServiceService } from '../../services/marcas-service.service';
 import { MarcasModule } from '../../models/marcas/marcas.module';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-marcas',
@@ -39,7 +40,7 @@ export class MarcasComponent implements OnInit {
     }
   }
 
-  RegistrarMarca(form) {
+  RegistrarMarca(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Espere por favor',
@@ -55,9 +56,10 @@ export class MarcasComponent implements OnInit {
           title: 'Advertencia',
           text: res['Mensaje']
         });
+        form.resetForm();
+        this.obtenerMarca();
       }
     );
-    this.obtenerMarca();
   }
 
   eliminar(marcas: MarcasModule, i: number) {

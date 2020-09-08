@@ -43,11 +43,12 @@
 .caja {
     position: fixed;
     width: 82%;
-    height: 595px;
+    height: 100%;
     overflow: scroll;
     margin-top: 4%;
     margin-left: 18.3%;
     /*background-color: rebeccapurple;*/
+    padding-bottom: 5%;
 }
 
 .ban {
@@ -67,8 +68,10 @@
 
 .container {
     width: 100%;
-    margin-top: 5%;
-    margin-bottom: 10%;
+    height: 100%;
+    margin-top: 2%;
+    margin-left: 0%;
+    margin-bottom: 20%;
 }
 
 .prod {
@@ -114,4 +117,8 @@ h6 {
 .price {
     text-align: center;
     margin-top: -4%;
+}
+
+h1 {
+    margin-left: 3%;
 }

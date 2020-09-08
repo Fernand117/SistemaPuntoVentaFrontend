@@ -11,9 +11,9 @@
                 <h5>Código</h5>
                 <input type="number" class="form-control" placeholder="2387" [(ngModel)]="productosM.codigo" name="codigo" id="codigo">
                 <h5>Nombre</h5>
-                <input type="text" class="form-control" placeholder="Producto" [(ngModel)]="productosM.nombre" name="nombre" id="nombre">
+                <input type="text" class="form-control" placeholder="Producto" [(ngModel)]="productosM.nombre" name="nombre" id="nombre" ng-maxlength="50">
                 <h5>Descripción</h5>
-                <input type="text" class="form-control" placeholder="Describe el producto de forma general" [(ngModel)]="productosM.descripcion" name="descripcion" id="descripcion">
+                <input type="text" class="form-control" placeholder="Describe el producto de forma general" [(ngModel)]="productosM.descripcion" name="descripcion" id="descripcion" ng-maxlength="50">
                 <h5>Precio base del producto</h5>
                 <div class="input-group mb-2 mr-sm-2">
                     <div class="input-group-prepend">
@@ -36,7 +36,7 @@
                 <h5>Subcategoria</h5>
                 <select class="form-control" [(ngModel)]="productosM.idsubcategoria" name="idsubcategoria" id="idsubcategoria">
                   <option value="0" selected>Selecciona una Subcategoria</option>
-                  <option value="" *ngFor="let item of subcategorias; let i = index; let cat of categorias" value="{{item.id}}">{{item.Subcategoria}} -> {{cat.Categoria}} </option>
+                  <option value="" *ngFor="let item of subcategorias; let i = index; let cat of categorias" value="{{item.id}}">{{item.subcategoria}} -> {{cat.categoria}} </option>
                 </select>
                 <h5>Marca</h5>
                 <select class="form-control" [(ngModel)]="productosM.idmarca" name="idmarca" id="idmarca">

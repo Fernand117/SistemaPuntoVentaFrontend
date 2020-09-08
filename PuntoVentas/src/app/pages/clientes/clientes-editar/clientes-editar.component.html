@@ -1,1 +1,27 @@
-<p>clientes-editar works!</p>
+<app-menu></app-menu>
+<app-menuadmin></app-menuadmin>
+<div class="caja">
+    <div class="container" *ngFor="let item of cilenteDetalle">
+        <h1>Editar cliente</h1>
+        <hr>
+        <form (ngSubmit)="actualizarCliente(form)" #form="ngForm">
+            <h5>Nombre</h5>
+            <input type="text" class="form-control" name="nombre" id="nombre" value="{{item.nombre}}" 
+	    placeholder="{{item.nombre}}" [(ngModel)]="clientes.nombre">
+            <h5>Ciudad</h5>
+            <input type="text" class="form-control" name="apellidop" id="apellidop" value="{{item.apellidop}}" 
+	    placeholder="{{item.apellidop}}" [(ngModel)]="clientes.apellidop">
+            <h5>Estado</h5>
+            <input type="text" class="form-control" name="apellidom" id="apellidom" value="{{item.apellidom}}" 
+	    placeholder="{{item.apellidom}}" [(ngModel)]="clientes.apellidom">
+            <h5>Dirección</h5>
+            <input type="text" class="form-control" name="direccion" id="direccion" value="{{item.descripcion}}" 
+	    placeholder="{{item.direccion}}" [(ngModel)]="clientes.direccion">
+            <h5>Telefono</h5>
+            <input type="text" class="form-control" name="telefono" id="telefono" value="{{item.telefono}}" 
+	    placeholder="{{item.telefono}}" [(ngModel)]="clientes.telefono">
+            <br>
+            <button type="submit" class="btn btn-success">Guardas cambios.</button>
+        </form>
+    </div>
+</div>

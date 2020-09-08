@@ -3,25 +3,25 @@
 <div class="caja">
     <div class="container">
         <div class="cont">
-            <h2>Lista de categorias</h2>
+            <h2>Lista de categorías</h2>
             <hr>
             <br>
             <form (ngSubmit)="guardar(form)" #form="ngForm">
                 <h5>Nombre de la categoría</h5>
-                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="categorias.nombre">
+                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="categorias.nombre" placeholder="Oficina">
                 <br>
                 <h5>Imagen</h5>
                 <input type="file" name="imagen" id="imagen" accept="image/jpeg" (change)="cargar_imagen($event)" [(ngModel)]="categorias.imagen">
                 <br>
                 <br>
-                <button type="submit" class="btn btn-success">Añadir nueva categoria</button>
+                <button type="submit" class="btn btn-success">Añadir nueva categoría</button>
             </form>
         </div>
         <div class="cat" *ngFor="let item of datos; let i = index">
-        <div class="redirect" [routerLink]="['/Productos/Filtro', item.nombre]">
-        <img src="{{item.imagen}}" alt="">
-            <h4>{{item.nombre}}</h4>
-        </div>
+            <div class="redirect" [routerLink]="['/Productos/Filtro', item.nombre]">
+                <img src="{{item.imagen}}" alt="">
+                <h4>{{item.nombre}}</h4>
+            </div>
             <button class="btn bl btn-danger" (click)="eliminar(item, i)">Eliminar</button>
         </div>
     </div>

@@ -4,6 +4,7 @@ import { SubCategoriasModule } from '../../models/sub-categorias/sub-categorias.
 import Swal from 'sweetalert2';
 import { CategoriasServiceService } from '../../services/categorias-service.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-subcategorias',
@@ -47,7 +48,7 @@ export class SubcategoriasComponent implements OnInit {
     }
   }
 
-  guardar(form) {
+  guardar(form: NgForm) {
     Swal.fire({
       icon: 'info',
       title: 'Alerta',
@@ -63,6 +64,7 @@ export class SubcategoriasComponent implements OnInit {
           title: 'Alerta',
           text: res['Mensaje']
         });
+        form.resetForm();
         this.obtenerSubcategoria();
       }
     );
